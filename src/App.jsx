@@ -1,9 +1,7 @@
-import "./App.css";
-
 function App() {
   return (
     <>
-      <div className="">HomePage</div>
+      <div className=" new w-[30rem] bg-[red] h-32">HomePages</div>
     </>
   );
 }
