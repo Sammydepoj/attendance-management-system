@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <div className=" new w-[30rem] bg-[red] h-32">HomePages</div>
+      <div className=" new w-[30rem] bg-[blue] h-32">HomePages</div>
     </>
   );
 }
