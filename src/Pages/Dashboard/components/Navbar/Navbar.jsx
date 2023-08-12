@@ -1,14 +1,12 @@
+import SailLogo from "../../../../assets/SailInnovationLogo.png"
 function Navbar() {
+  
     return (
-      <div>
-        <div className="pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0 ml-0"></div>
-        <div className="bg-white">
-          <div className="flex-col flex w-screen">
-            <div className="w-full border-b-2 border-gray-200">
+            <div className="  border-gray-200 ">
               <div className="bg-white h-16 justify-between items-center mx-auto px-4 flex">
-                <div>
-                  <img src="https://pbs.twimg.com/profile_images/1480537531976462345/bodRfppd_400x400.jpg"
-                    className="block btn- h-12 w-auto" alt="" />
+                <div className="w-[10rem] mx-[2rem]">
+                  <img src={SailLogo} alt="SailLogo" />
+                    
                 </div>
                 <div className="lg:block mr-auto ml-40 hidden relative max-w-xs">
                   <p className="pl-3 items-center flex absolute inset-y-0 left-0 pointer-events-none">
@@ -61,8 +59,8 @@ function Navbar() {
                 </div>
               </div>
             </div>
-          </div>
-        </div></div>
+          
+        
     );
   }
   export default Navbar;

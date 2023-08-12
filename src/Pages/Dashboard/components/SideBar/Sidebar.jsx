@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar() {
     return (
-        <div className="flex">
-            <div className="flex flex-col h-screen p-3 bg-white shadow w-60">
-
+        <div className="h-[96] border">
+            <div className="flex flex-col  p-3 bg-white  w-60">
                 <div className="space-y-3">
                     <div className="flex items-center">
                         <h2 className="text-xl font-bold ">Dashboard</h2>
