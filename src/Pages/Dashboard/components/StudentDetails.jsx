@@ -3,7 +3,7 @@
   const StudentDetails = () => {
     return (
      
-      <div className="w-[2000px] bg-gray-300 p-4 rounded-xl items-center mt-4 ">
+      <div className=" bg-gray-300 p-4 rounded-xl items-center ">
         <div className="items-center justify-between">
         <img src="src/assets/Linda-Osifo-2.jpg" alt="" className=' rounded-lg h-32 w-64'/>
       <h1 class=" font-bold text-gray-800 mb-4">StudentDetails 

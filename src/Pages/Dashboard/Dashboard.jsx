@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div className="">
      <Navbar />
-     <div className="grid grid-cols-[20rem_1fr]">
+     <div className="grid grid-cols-[20rem_1fr] ">
      <Sidebar />
      <StudentDetails/>
      </div>
