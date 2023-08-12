@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SailLogo from '../../assets/sail.jpg'
+import SailLogo from '../../assets/SailInnovationLogo.png'
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const SignUp = () => {
       <img src={SailLogo} alt="Sail Logo" className=" w-[4rem] m-auto"/>
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSignup}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label className="" htmlFor="email">
             Email
           </label>
           <input
