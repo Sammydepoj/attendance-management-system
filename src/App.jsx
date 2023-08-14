@@ -9,7 +9,7 @@ import StudentDetails from "./Pages/Dashboard/components/StudentDetails";
 function App() {
   return (
     <Routes>
-      <Route path="/signin" element={<Sigin />} />
+      <Route path="/" element={<Sigin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/details" element={<StudentDetails/>}></Route>

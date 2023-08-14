@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
 import { Link } from 'react-router-dom'; 
 import { Form, Row, Col, Button, Input } from "antd";
