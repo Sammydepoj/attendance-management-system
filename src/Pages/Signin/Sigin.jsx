@@ -9,13 +9,16 @@ const Signin = () => {
   const loginHandler = async () => {
     setLoading(true);
     try {
-      const logIn = await fetch("http://localhost:5000/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
+      const logIn = await fetch(
+        "https://ams-backend-yjri.onrender.com/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loginData),
+        }
+      );
       const response = await logIn.json();
       setLoading(false);
       console.log(response);

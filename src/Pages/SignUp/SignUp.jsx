@@ -11,13 +11,16 @@ const SignUp = () => {
   const formSubmitHandler = async () => {
     setLoading(true);
     try {
-      const sendData = await fetch("http://localhost:5000/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const sendData = await fetch(
+        "https://ams-backend-yjri.onrender.com/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const response = await sendData.json();
       setLoading(false);
 
