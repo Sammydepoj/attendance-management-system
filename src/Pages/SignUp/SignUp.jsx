@@ -1,72 +1,117 @@
-import React, { useState } from "react";
-import SailLogo from '../../assets/SailInnovationLogo.png'
+import React, {useState} from "react";
+import SailLogo from "../../assets/SailInnovationLogo.png";
+import { Link } from 'react-router-dom'; 
+import { Form, Row, Col, Button, Input } from "antd";
+
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleSignup = (e) => {
-    e.preventDefault();
-    // Handle signup logic here
-    console.log("Signup form submitted");
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+  
+  const handleSignUp = async() =>{
+    setLoading(true);
+    console.log("Form Submitted Successfully");
+    setLoading(false);
   };
 
   return (
-    <div className="w-full max-w-xs pt-[7rem] mx-auto">
-      <img src={SailLogo} alt="Sail Logo" className=" w-[4rem] m-auto"/>
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSignup}>
-        <div className="mb-4">
-          <label className="" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <div className="grid-cols-2  h-[100svh]">
+
+      <div className="w-[10rem] mx-[2rem]">
+        <img src={SailLogo} alt="SailLogo" />
+      </div>
+
+      <div className=" justify-center m-auto items-center bg-white w-[25rem]">
+        <div className="text-center text-2xl font-bold">
+          <h1>Sign Up</h1>
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+
+        <div className="block justify-center items-center flex-col h-80 mt-10">
+          <div className="ml-[1.4rem]" >
+            <Form layout="vertical" form={form} onFinish={handleSignUp}>
+              <Row>
+                <Col span={24}>
+                  <Form.Item name="firstName">
+                    <Input 
+                    type="text"
+                    id="firstName"
+                    placeholder="First Name"
+                    rules={[{required: true, message: 'please enter your First Name'}]}
+                    className="py-3"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col span={24}>
+                <Form.Item name="lastName">
+                  <Input type="text"
+                  id="lastName"
+                  // placeholder="Last Name"
+                  rules={[{required: true, message: 'please enter your Last Name'}]}
+                  className="py-3"/>
+                </Form.Item>
+                </Col>
+
+                <Col span={24}>
+                  <Form.Item name="email">
+                    <Input
+                      type="email"
+                      id="email"
+                      placeholder="Email Address"
+                      rules={[{required: true, message: 'please enter your email'},
+                    {type: 'email', message:'Please enter a valid email'},]}
+                      className="py-3"
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col span={24}>
+                  <Form.Item name="password">
+                    <Input.Password 
+                    type="password"
+                    placeholder="Password" 
+                    rules={[{required: true, message: 'please enter a password'}]}
+                    id="password"
+                    className="py-3" 
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col span={24}>
+                  <Form.Item name="confirmPassword">
+                    <Input.Password 
+                    // placeholder="Confirm Password" 
+                    type="confirmPassword"
+                    rules={[{required: true, message: 'please enter your password'},
+                    {type: 'email', message:'Please enter a valid password'},]}
+                    id="confirmPassword"
+                    className="py-3"
+                     />
+                  </Form.Item>
+                </Col>
+
+                <Col span={24}>
+                  <Button
+                    type="primary"
+                    htmlType="submit" 
+                    loading={loading}
+                    className="bg-[#134c98] flex items-center justify-center py-5"
+                    block
+                  >
+                    Sign Up
+                  </Button>
+                </Col>
+                <Col span={24}>
+                  <span>Already have an account? <Link to="/signin">Sign In</Link></span>
+                  </Col>
+              </Row>
+            </Form>
+          </div>
         </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
-            Confirm Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Sign Up
-          </button>
-        </div>
-      </form>
+      </div>
+
     </div>
-  );
-};
+  )
+}
 
 export default SignUp;
-

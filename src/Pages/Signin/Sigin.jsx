@@ -2,7 +2,10 @@ import React from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
 import { Button, Col, Form, Input, Row } from "antd";
 
-const SignIn = () => {
+const Signin = () => {
+  const onFinish = () => {
+    console.log("Signin Successful");
+  };
   return (
     <div className=" grid-cols-2  h-[100svh]">
       <div className="w-[10rem] mx-[2rem]">
@@ -15,10 +18,11 @@ const SignIn = () => {
         </div>
         <div className="block justify-center items-center flex-col  h-80 mt-10 ">
           <div className="ml-[1.4rem]">
-            <Form layout="vertical">
+            <Form layout="vertical" onFinish={onFinish}>
               <Row>
                 <Col span={24}>
-                  <Form.Item name="email">
+                  <Form.Item name="email"
+                  rules={[{ required: true, message: 'Please input your EmailAddress!' }]}>
                     <Input
                       type="email"
                       id="email"
@@ -29,8 +33,16 @@ const SignIn = () => {
                 </Col>
 
                 <Col span={24}>
-                  <Form.Item name="pasword">
-                    <Input.Password placeholder="Password" className="py-3" />
+                  <Form.Item name="password"
+                  rules={[
+                    { required: true, message: "Please input your password!" },
+                  ]}
+                  >
+                    <Input.Password 
+                    placeholder="Password"
+                    type="text"
+                    id="password"
+                     className="py-3" />
                   </Form.Item>
                 </Col>
                 <div className="text-sm font-normal mb-2 pl-[1rem] text-[#75C2F6]">
@@ -39,6 +51,7 @@ const SignIn = () => {
                 <Col span={24}>
                   <Button
                     type="primary"
+                    htmlType="submit"
                     className="bg-[#134c98] flex items-center justify-center py-5"
                     block
                   >
@@ -48,14 +61,11 @@ const SignIn = () => {
               </Row>
             </Form>
           </div>
-          {/* <div className="flex justify-center text-center">
-            <h6 className="text-sm font-normal">Create an account</h6>
-            <a href="" className="text-sm font- text-[#75C2F6] px-1">Signup now</a>
-          </div> */}
+          
         </div>
       </div>
     </div>
   );
 };
 
-export default SignIn;
+export default Signin;
