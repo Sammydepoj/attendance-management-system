@@ -216,8 +216,8 @@ const SignUp = () => {
                   </Button>
                 </Col>
                 <Col span={24}>
-                  <span>
-                    Already have an account? <Link to="/">Sign In</Link>
+                  <span className="text-sm font-normal md-2 pl-[1rem] ">
+                    Already have an account? <Link to="/" className="text-[#75C2F6]">Sign In</Link>
                   </span>
                 </Col>
               </Row>
