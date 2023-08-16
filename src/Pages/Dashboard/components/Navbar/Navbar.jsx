@@ -13,15 +13,18 @@ function Navbar() {
     console.log(lat, long);
     setLoading(true);
     try {
-      const clockIn = await fetch("http://localhost:5000/clockin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          location: `${lat}, ${long}`,
-        }),
-      });
+      const clockIn = await fetch(
+        "https://ams-backend-yjri.onrender.com/clockin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            location: `${lat}, ${long}`,
+          }),
+        }
+      );
       const response = await clockIn.json();
 
       setLoading(false);
