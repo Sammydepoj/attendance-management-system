@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
 import { Button, Col, Form, Input, Row } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState();
+  const Navigate = useNavigate();
+
+
+
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+     Navigate("/dashboard", {
+        replace: true,
+      });
+    }
+  }, [Navigate]);
+
   const loginHandler = async () => {
     setLoading(true);
     try {
@@ -24,6 +37,11 @@ const Signin = () => {
       setLoading(false);
       console.log(response);
       alert(response?.responseMessage);
+      if (response?.responseCode === "00") {
+        Navigate("/dashboard", {
+          replace: true,
+        });
+      }
     } catch (error) {
       setLoading(false);
       console.log(error);
