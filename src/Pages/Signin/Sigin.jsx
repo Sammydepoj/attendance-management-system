@@ -12,7 +12,7 @@ const Signin = () => {
 
 
   useEffect(() => {
-    if (sessionStorage.getItem("token")) {
+    if (localStorage.getItem("token")) {
      Navigate("/dashboard", {
         replace: true,
       });
@@ -33,6 +33,7 @@ const Signin = () => {
         }
       );
       const response = await logIn.json();
+      localStorage.setItem("token", response.data.token);
       sessionStorage.setItem("token", response.data.token);
       setLoading(false);
       console.log(response);

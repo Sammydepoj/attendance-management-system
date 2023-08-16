@@ -11,7 +11,7 @@ const ClockInButton = () => {
   const [loading, setLoading] = useState(false);
   const token = sessionStorage.getItem("token");
   const clockInHandler = async () => {
-    console.log(lat, long);
+    // console.log(lat, long);
     setLoading(true);
     try {
       const clockIn = await fetch(
