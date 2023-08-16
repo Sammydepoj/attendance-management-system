@@ -9,11 +9,9 @@ const Signin = () => {
   const [loginData, setLoginData] = useState();
   const Navigate = useNavigate();
 
-
-
   useEffect(() => {
     if (localStorage.getItem("token")) {
-     Navigate("/dashboard", {
+      Navigate("/dashboard", {
         replace: true,
       });
     }
@@ -41,6 +39,7 @@ const Signin = () => {
       if (response?.responseCode === "00") {
         Navigate("/dashboard", {
           replace: true,
+          state: response?.data,
         });
       }
     } catch (error) {

@@ -3,10 +3,12 @@ import { FiUsers } from "react-icons/fi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { TbCurrencyYen } from "react-icons/tb";
 import { MdGraphicEq } from "react-icons/md";
-import { BiSearch } from "react-icons/bi";
 import Sidebar from "./components/SideBar";
 import ClockInButton from "./components/ClockInButton";
+import { useLocation } from "react-router-dom";
 const Dashboard = () => {
+    const { state } = useLocation();
+    console.log(state)
   return (
     <div className="grid grid-cols-[15rem_1fr]">
       <div className=" bg-red-700">
@@ -15,10 +17,10 @@ const Dashboard = () => {
       <div>
         <div className="flex justify-between p-4">
           <div className="">
-            <p className=" text-black-600 font-bold">Hi Dixit.</p>
+            <p className=" text-black-600 font-bold">Hi {state?.username}</p>
             <h1 className=" text-xl font-bold text-[--green]">
               {" "}
-              Welcome to Sovia!
+              Welcome to SAIL!
             </h1>
           </div>
 
