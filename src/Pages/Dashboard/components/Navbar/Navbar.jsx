@@ -1,5 +1,40 @@
+import { useState, useEffect } from "react";
 import SailLogo from "../../../../assets/SailInnovationLogo.png";
+import useGetLocation from "../../../../hooks/useGetLocation";
+
 function Navbar() {
+  const { lat, long, getUserLocation } = useGetLocation();
+  useEffect(() => {
+    getUserLocation();
+  }, [getUserLocation]);
+  const [loading, setLoading] = useState(false);
+
+  const clockInHandler = async () => {
+    console.log(lat, long);
+    setLoading(true);
+    try {
+      const clockIn = await fetch(
+        "https://ams-backend-yjri.onrender.com/clockin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            location: `${lat}, ${long}`,
+          }),
+        }
+      );
+      const response = await clockIn.json();
+
+      setLoading(false);
+      console.log(response);
+      alert(response?.responseMessage);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="  border-gray-200 ">
       <div className="bg-white h-16 justify-between items-center mx-auto px-4 flex">
@@ -29,7 +64,10 @@ function Navbar() {
               </span>
             </span>
           </p>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+          <button
+            onClick={clockInHandler}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+          >
             Clock in
           </button>
         </div>
