@@ -5,10 +5,13 @@ import { BsArrowRightShort } from "react-icons/bs"
 import { TbCurrencyYen } from "react-icons/tb"
 import { MdGraphicEq } from "react-icons/md"
 import {BiSearch} from "react-icons/bi"
+import Sidebar from "./components/SideBar";
 const Dashboard = () => {
     return (
         <div className="grid grid-cols-[15rem_1fr]">
-            <div className=" bg-red-700"></div>
+            <div className=" bg-red-700">
+                <Sidebar />
+            </div>
             <div >
                 <div className="flex justify-between p-4">
                     <div className="">
@@ -25,7 +28,7 @@ const Dashboard = () => {
                         <div className="grid grid-cols-4 gap-4 rounded-lg">
                             <div className=" bg-white shadow p-4 m-8 rounded-lg  ml-8 mr-16  h-24">
                                 <h1 className="font-bold text-[--green] flex items-center gap-2 "> Live courses</h1>
-                                <p class=" text-gray-600 font-bold">13</p>
+                                <p className=" text-gray-600 font-bold">13</p>
                             </div>
                             <div className="bg-white shadow p-4 m-8 rounded-lg  ml-8 mr-16">
                                 <h1 className=" font-bold text-[--green] flex items-center gap-2" > <FaVideoSlash className="text-3xl" />Videos</h1>
@@ -73,16 +76,16 @@ const Dashboard = () => {
                     <div>
                         <div className="flex ">
                             <div className="bg-white shadow rounded-lg w-[65%] h-72 m-16 ml-8 mr-16">
-                                <p class=" text-[--green] font-bold ml-3 mt-3">Viewership      New subscribers     Earnings  </p>
+                                <p className=" text-[--green] font-bold ml-3 mt-3">Viewership      New subscribers     Earnings  </p>
                                 <p className=" ml-[80%] text-[--green]"><MdGraphicEq /></p>
                                 <p className="text-black font-bold ml-3 mt-3 text-xl">1,130 hours</p>
                             </div>
                             <div className="bg-white shadow rounded-lg w-[35%] h-72 m-16 ml-8 mr-16">
                                 <h1 className="text-xl font-bold text-[--green] ml-3 mt-3 " >Discusssion box</h1>
                                 <p className="text-black mt-3 ml-3 font">Recent</p>
-                                <p class="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
-                                <p class="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
-                                <p class="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
+                                <p className="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
+                                <p className="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
+                                <p className="w-9 h-9 shadow rounded-full flex items-center justify-center ml-3 mt-3"></p>
                                 <p className="ml-[80%] text-[--green] flex items-center font-bold">View all <BsArrowRightShort /></p>
                             </div>
                         </div>
