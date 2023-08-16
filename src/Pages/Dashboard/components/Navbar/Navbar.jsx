@@ -29,6 +29,7 @@ function Navbar() {
 
       setLoading(false);
       console.log(response);
+      alert(response?.responseMessage);
     } catch (error) {
       console.log(error);
     }
