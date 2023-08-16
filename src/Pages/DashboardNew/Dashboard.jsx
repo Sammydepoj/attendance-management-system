@@ -4,12 +4,12 @@ import { FiUsers } from "react-icons/fi"
 import { BsArrowRightShort } from "react-icons/bs"
 import { TbCurrencyYen } from "react-icons/tb"
 import { MdGraphicEq } from "react-icons/md"
-import {BiSearch} from "react-icons/bi"
+import { BiSearch } from "react-icons/bi"
 import Sidebar from "./components/SideBar";
 const Dashboard = () => {
     return (
         <div className="grid grid-cols-[15rem_1fr]">
-            <div className=" bg-red-700">
+            <div className="bg-[--white]">
                 <Sidebar />
             </div>
             <div >
@@ -18,9 +18,20 @@ const Dashboard = () => {
                         <p className=" text-black-600 font-bold">Hi Dixit.</p>
                         <h1 className=" text-xl font-bold text-[--green]"> Welcome to Sovia!</h1>
                     </div>
-                    <div className="  bg-white shadow w-44 rounded-lg h-11">
-        <input className="" type="text" name="" id="" placeholder="Search" />
+                    <div className="bg-[--blur] shadow w-44 rounded-lg h-11">
+                        <div>
+                            <div className="relative">
+                                <input
+                                    type="text"
+                                    className="border rounded px-4 py-2 pr-12 w-full"
+                                    placeholder="Search"
+                                />
+                                <div className="absolute top-0 right-0 h-full flex items-center px-3">
+                                    <BiSearch className="text-gray-400" />
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
                 <div className="border">
@@ -47,27 +58,57 @@ const Dashboard = () => {
                     </div>
                     <div>
                         <div className="flex gap-0">
-                            <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16 ml-8 mr-16">
+                            <div className="bg-white shadow rounded-lg  h-[22rem] w-[60%] m-16 ml-8 mr-16">
                                 <h1 className="font-bold text-[--green] mt-5 ml-5 text-black text-2xl">Top Courses</h1>
-                                <div>
-                                <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
-                                <p className=" text-black ml-5 text-20">#34561</p>
+                                <div className="flex">
+                                    <div>
+                                        <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
+                                        <p className=" text-black ml-5 text-20">#34561</p>
+                                    </div>
+                                    <div className="ml-96 mt-5 ">
+                                        <p className="text-[--green]"> $2567.89</p>
+                                        <p className="text-[--gray]"> 131 subscribers</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p></p>
-                                    <p></p>
+
+                                <div className="flex">
+                                    <div>
+                                        <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
+                                        <p className=" text-black ml-5 text-20">#34561</p>
+                                    </div>
+                                    <div className="ml-96 mt-5 ">
+                                        <p className="text-[--green]"> $2567.89</p>
+                                        <p className="text-[--gray]"> 131 subscribers</p>
+                                    </div>
                                 </div>
-                                <div className="main"></div>
-                                <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
-                                <p className=" text-black ml-5">#34561</p>
-                                <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
-                                <p className=" text-black ml-5">#34561</p>
+
+                                <div className="flex">
+                                    <div>
+                                        <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5"> <FaVideoSlash className="text-2xl text-[--gold]" /> History of india </p>
+                                        <p className=" text-black ml-5 text-20">#34561</p>
+                                    </div>
+                                    <div className="ml-96 mt-5 ">
+                                        <p className="text-[--green]"> $2567.89</p>
+                                        <p className="text-[--gray]"> 131 subscribers</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16">
+                            <div className="bg-white shadow rounded-lg  h-[22rem] w-[60%] m-16">
                                 <h1 className="font-bold text-black mt-3 ml-3 text-3xl">Upcoming Tasks</h1>
-                                <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">Enviroment Discuss</p>
-                                <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">Enviroment Discuss</p>
-                                <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">Enviroment Discuss</p>
+                                <div className="border-l-4 border-[--green] p-3 ml-3 mt-3">
+                                    <p>Enviroment Discuss</p>
+                                    <p>01:00-02:00</p>
+                                </div>
+                                <div className="border-l-4 border-[--green] p-4 ml-3 mt-3">
+                                    <p>Enviroment Discuss</p>
+                                    <p>01:00-02:00</p>
+
+                                </div>
+                                <div className="border-l-4 border-[--green] p-4 ml-3 mt-3">
+                                    <p>Enviroment Discuss</p>
+                                    <p>01:00-02:00</p>
+                                </div>
+
                                 <p className="ml-[80%] text-[--green] flex items-center font-bold">View all tasks <BsArrowRightShort /></p>
                             </div>
                         </div>
