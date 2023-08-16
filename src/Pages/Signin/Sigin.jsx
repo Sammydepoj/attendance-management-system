@@ -20,6 +20,7 @@ const Signin = () => {
         }
       );
       const response = await logIn.json();
+      sessionStorage.setItem("token", response.data.token);
       setLoading(false);
       console.log(response);
       alert(response?.responseMessage);
