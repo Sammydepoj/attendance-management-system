@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --green: #30E0AB;
+    --gray: #F4F7FE;
+    --gold:#FFB547;
+  }
+
 
 
 

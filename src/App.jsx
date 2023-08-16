@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Sigin from "./Pages/Signin/Sigin";
 import SignUp from "./Pages/SignUp/SignUp";
 import Dashboard from "./Pages/DashboardNew/Dashboard";
-
 import StudentDetails from "./Pages/Dashboard/components/StudentDetails";
 
 function App() {
