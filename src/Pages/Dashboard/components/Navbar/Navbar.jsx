@@ -8,7 +8,7 @@ function Navbar() {
     getUserLocation();
   }, [getUserLocation]);
   const [loading, setLoading] = useState(false);
-
+  const token = sessionStorage.getItem("token");
   const clockInHandler = async () => {
     console.log(lat, long);
     setLoading(true);
@@ -19,6 +19,7 @@ function Navbar() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             location: `${lat}, ${long}`,
