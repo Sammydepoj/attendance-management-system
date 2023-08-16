@@ -22,6 +22,7 @@ const Signin = () => {
       const response = await logIn.json();
       setLoading(false);
       console.log(response);
+      alert(response?.responseMessage);
     } catch (error) {
       setLoading(false);
       console.log(error);
