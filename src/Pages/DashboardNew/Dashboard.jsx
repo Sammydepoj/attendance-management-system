@@ -6,6 +6,7 @@ import { MdGraphicEq } from "react-icons/md";
 import Sidebar from "./components/SideBar";
 import ClockInButton from "./components/ClockInButton";
 import { useLocation } from "react-router-dom";
+import ClockOutButton from "./components/ClockOutButton";
 const Dashboard = () => {
     const { state } = useLocation();
     console.log(state)
@@ -17,14 +18,17 @@ const Dashboard = () => {
       <div>
         <div className="flex justify-between p-4">
           <div className="">
-            <p className=" text-black-600 font-bold">Hi {state?.username}</p>
+            <p className=" text-black-600 font-bold">Hi {state?.firstName}</p>
             <h1 className=" text-xl font-bold text-[--green]">
               {" "}
               Welcome to SAIL!
             </h1>
           </div>
 
+          <ClockOutButton />
           <ClockInButton />
+
+
         </div>
         <div className="border">
           <div>

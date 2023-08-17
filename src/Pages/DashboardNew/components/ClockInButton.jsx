@@ -42,7 +42,6 @@ const ClockInButton = () => {
     <div>
       <button className=" bg-blue-600 p-4 rounded-md text-slate-200 font-bold"
       onClick={clockInHandler}
-      disabled={loading}
       >
         Clock In
       </button>
