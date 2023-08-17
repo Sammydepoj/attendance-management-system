@@ -1,11 +1,22 @@
 import { useState } from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
-import { Button, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, Row, Modal } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("")
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const loginHandler = async () => {
     setLoading(true);
     try {
@@ -20,14 +31,16 @@ const Signin = () => {
         }
       );
       const response = await logIn.json();
-      sessionStorage.setItem("token", response.data.token);
       setLoading(false);
+      setResponseMessage(response.responseMessage);
       console.log(response);
-      alert(response?.responseMessage);
+      showModal()
+      sessionStorage.setItem("token", response.data.token);
     } catch (error) {
       setLoading(false);
       console.log(error);
     }
+    
   };
   const { setEventInputs } = useGatherInputFields(setLoginData);
 
@@ -120,6 +133,9 @@ const Signin = () => {
           </div>
         </div>
       </div>
+      <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <h2>{responseMessage}</h2>
+      </Modal>
     </div>
   );
 };
