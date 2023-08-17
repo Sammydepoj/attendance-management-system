@@ -8,6 +8,8 @@ import ClockInButton from "./components/ClockInButton";
 import { useLocation } from "react-router-dom";
 import ClockOutButton from "./components/ClockOutButton";
 const Dashboard = () => {
+    const { state } = useLocation();
+
     return (
         <div className="grid grid-cols-[15rem_1fr]">
             <div className=" bg-[--white]">
@@ -103,6 +105,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
