@@ -13,8 +13,8 @@ const useGetLocation = () => {
     function success(pos) {
       const crd = pos.coords;
 
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
+      // console.log(`Latitude : ${crd.latitude}`);
+      // console.log(`Longitude: ${crd.longitude}`);
       setLong(crd.longitude);
       setLat(crd.latitude);
       // console.log(`More or less ${crd.accuracy} meters.`);

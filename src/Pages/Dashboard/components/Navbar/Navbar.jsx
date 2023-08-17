@@ -10,7 +10,7 @@ function Navbar() {
   const [loading, setLoading] = useState(false);
   const token = sessionStorage.getItem("token");
   const clockInHandler = async () => {
-    console.log(lat, long);
+    // console.log(lat, long);
     setLoading(true);
     try {
       const clockIn = await fetch(
@@ -29,7 +29,7 @@ function Navbar() {
       const response = await clockIn.json();
 
       setLoading(false);
-      console.log(response);
+      // console.log(response);
       alert(response?.responseMessage);
     } catch (error) {
       console.log(error);
