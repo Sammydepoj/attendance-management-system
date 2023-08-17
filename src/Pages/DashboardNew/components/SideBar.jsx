@@ -45,8 +45,8 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className=" flex p-4 gap-4 text-green-500 items-center">
-        <div className=" bg-green-500 h-[3rem] w-[3rem] rounded-md"></div>
+      <div className=" flex p-4 gap-4 text-[--green] items-center">
+        <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md"></div>
         <div>
           <h1 className=" text-2xl font-semibold">Instructor</h1>
           <p className=" text-xs font-normal">DASHBOARD</p>
