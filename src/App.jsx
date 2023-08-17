@@ -5,6 +5,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Dashboard from "./Pages/DashboardNew/Dashboard";
 import Details from "./Pages/DashboardNew/components/Details";
 import { Link } from "react-router-dom";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
           path: "/dashboard/details",
           element: <Details />,
         },
+        {
+          path:"/dashboard/details/profile",
+          element: <Profile />
+        }
       ],
     },
   ]);
