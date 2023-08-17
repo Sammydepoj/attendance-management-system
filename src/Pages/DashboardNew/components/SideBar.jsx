@@ -22,7 +22,7 @@ const Sidebar = () => {
       name: "Profile",
       icon: <FiUsers />,
 
-      link: "",
+      link: "/dashboard/details/profile",
     },
 
     {
