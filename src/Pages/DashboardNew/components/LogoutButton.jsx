@@ -12,7 +12,7 @@ const LogoutButton = () => {
 };
   return (
     <div>
-      <button className="flex items-center mt-[30rem] gap-4 p-4  text-slate-400 text-xl"
+      <button className="flex items-center mt-[5.5rem] gap-4 p-4  text-slate-400 text-xl "
         onClick={logoutHandler}
       >
         <BiLogOut />

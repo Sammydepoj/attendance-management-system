@@ -40,7 +40,7 @@ const ClockInButton = () => {
     
   return (
     <div>
-      <button className=" bg-blue-600 p-4 rounded-md text-slate-200 font-bold"
+      <button className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold"
       onClick={clockInHandler}
       >
         Clock In
