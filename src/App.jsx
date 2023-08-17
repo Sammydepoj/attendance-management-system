@@ -1,19 +1,41 @@
 /* eslint-disable no-unused-vars */
-import { Route, Routes } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sigin from "./Pages/Signin/Sigin";
 import SignUp from "./Pages/SignUp/SignUp";
 import Dashboard from "./Pages/DashboardNew/Dashboard";
-// import StudentDetails from "./Pages/Dashboard/components/StudentDetails";
+import Details from "./Pages/DashboardNew/components/Details";
+import { Link } from "react-router-dom";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Sigin />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      {/* <Route path="/dashboard/details" element={<StudentDetails/>}></Route> */}
-    </Routes>
-  );
+  const router = createBrowserRouter([
+    {
+      element: <Sigin />,
+      path: "/",
+    },
+    {
+      element: <SignUp />,
+      path: "/signup",
+    },
+    {
+      element: <Dashboard />,
+      path: "/dashboard/details",
+      errorElement: (
+        <div className="h-[100svh] grid items-center justify-center">
+          <h1>Page Not Found</h1>
+          <button className="">
+            <Link to={"/dashboard/details"}>Go to Dashboard</Link>
+          </button>
+        </div>
+      ),
+      children: [
+        {
+          path: "/dashboard/details",
+          element: <Details />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;

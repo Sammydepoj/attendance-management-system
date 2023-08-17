@@ -12,7 +12,7 @@ const Signin = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      navigate("/dashboard", {
+      navigate("/dashboard/details", {
         replace: true,
       });
     }
@@ -36,7 +36,7 @@ const Signin = () => {
       setLoading(false);
       console.log(response);
       if (response?.responseCode === "00") {
-        navigate("/dashboard", {
+        navigate("/dashboard/details", {
           replace: true,
           state: response?.data,
         });
