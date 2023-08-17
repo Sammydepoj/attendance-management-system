@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
-import { Button, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, Row, Modal } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState();
+
   const Navigate = useNavigate();
 
   useEffect(() => {
@@ -16,6 +17,19 @@ const Signin = () => {
       });
     }
   }, [Navigate]);
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("")
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const loginHandler = async () => {
     setLoading(true);
@@ -31,9 +45,12 @@ const Signin = () => {
         }
       );
       const response = await logIn.json();
+
       localStorage.setItem("token", response.data.token);
       sessionStorage.setItem("token", response.data.token);
+
       setLoading(false);
+      setResponseMessage(response.responseMessage);
       console.log(response);
       alert(response?.responseMessage);
       if (response?.responseCode === "00") {
@@ -42,10 +59,13 @@ const Signin = () => {
           state: response?.data,
         });
       }
+      showModal()
+      sessionStorage.setItem("token", response.data.token);
     } catch (error) {
       setLoading(false);
       console.log(error);
     }
+    
   };
   const { setEventInputs } = useGatherInputFields(setLoginData);
 
@@ -138,6 +158,9 @@ const Signin = () => {
           </div>
         </div>
       </div>
+      <Modal title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <h2>{responseMessage}</h2>
+      </Modal>
     </div>
   );
 };
