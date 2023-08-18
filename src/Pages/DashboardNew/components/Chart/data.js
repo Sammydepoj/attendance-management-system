@@ -1,4 +1,4 @@
-[
+export const chartData = [
   {
     city: "石家庄",
     type: "水果",

@@ -2,6 +2,7 @@ import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { TbCurrencyYen } from "react-icons/tb";
 import DemoColumn from "./Chart/Chart";
+import RecentClockIn from "./RecentClockIn";
 const Details = () => {
   return (
     <div className="">
@@ -39,37 +40,8 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className="flex gap-0">
-          <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16 ml-8 mr-16">
-            <h1 className="font-bold text-[--green] mt-5 ml-5 text-black text-2xl">
-              Top Courses
-            </h1>
-            <div>
-              <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5">
-                {" "}
-                <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-                india{" "}
-              </p>
-              <p className=" text-black ml-5 text-20">#34561</p>
-            </div>
-            <div>
-              <p></p>
-              <p></p>
-            </div>
-            <div className="main"></div>
-            <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5">
-              {" "}
-              <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-              india{" "}
-            </p>
-            <p className=" text-black ml-5">#34561</p>
-            <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5">
-              {" "}
-              <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-              india{" "}
-            </p>
-            <p className=" text-black ml-5">#34561</p>
-          </div>
+        <div className="flex gap-4 flex-wrap justify-around mt-4">
+          <RecentClockIn />
           <DemoColumn />
         </div>
       </div>

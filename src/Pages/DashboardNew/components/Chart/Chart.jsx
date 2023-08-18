@@ -1,29 +1,23 @@
 import { useState, useEffect } from "react";
 import { Column } from "@ant-design/plots";
-
+import { chartData } from "./data";
 const DemoColumn = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    asyncFetch();
+    setData(chartData);
   }, []);
 
-  const asyncFetch = () => {
-    fetch(
-      "https://gw.alipayobjects.com/os/antfincdn/PC3daFYjNw/column-data.json"
-    )
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => {
-        console.log("fetch data failed", error);
-      });
-  };
   const config = {
     data,
     xField: "city",
     yField: "value",
     seriesField: "type",
     isGroup: true,
+    maxColumnWidth: 10,
+    minColumnWidth: 5,
+    dodgePadding: 10,
+    legend: false,
     columnStyle: {
       radius: [20, 20, 0, 0],
     },
