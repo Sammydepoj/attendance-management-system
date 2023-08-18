@@ -1,7 +1,7 @@
 import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
-import { BsArrowRightShort } from "react-icons/bs";
 import { TbCurrencyYen } from "react-icons/tb";
+import DemoColumn from "./Chart/Chart";
 import RecentClockIn from "./RecentClockIn";
 const Details = () => {
   return (
@@ -40,58 +40,9 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className="flex gap-0 flex-wrap justify-center">
-          {/* <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16 ml-8 mr-16">
-            <h1 className="font-bold text-[--green] mt-5 ml-5 text-black text-2xl">
-              Top Courses
-            </h1>
-            <div>
-              <p className="font-bold text-black flex items-center gap-2 mt-5 ml-5">
-                {" "}
-                <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-                india{" "}
-              </p>
-              <p className=" text-black ml-5 text-20">#34561</p>
-            </div>
-            <div>
-              <p></p>
-              <p></p>
-            </div>
-            <div className="main"></div>
-            <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5">
-              {" "}
-              <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-              india{" "}
-            </p>
-            <p className=" text-black ml-5">#34561</p>
-            <p className="font-bold  text-black flex items-center gap-2 mt-5 ml-5">
-              {" "}
-              <FaVideoSlash className="text-2xl text-[--gold]" /> History of
-              india{" "}
-            </p>
-            <p className=" text-black ml-5">#34561</p>
-          </div> */}
-
+        <div className="flex gap-4 flex-wrap justify-around mt-4">
           <RecentClockIn />
-
-                        
-          <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16">
-            <h1 className="font-bold text-black mt-3 ml-3 text-3xl">
-              Upcoming Tasks
-            </h1>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="ml-[80%] text-[--green] flex items-center font-bold">
-              View all tasks <BsArrowRightShort />
-            </p>
-          </div>
+          <DemoColumn />
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
-import { Button, Space, Table, Tag } from "antd";
+import { Button, Table, Tag } from "antd";
 
-const clockInStatus = false
-
+const clockInStatus = false;
 
 // const arr =  [1,2,3,4,5]
 // console.log(arr.slice(-3, arr.length));
@@ -54,10 +53,7 @@ const columns = [
       );
     },
   },
- 
 ];
-
-
 
 const data = [
   {
@@ -71,8 +67,8 @@ const data = [
     clockInStatus: clockInStatus,
   },
   {
-    key: "1",
-    sn: "1",
+    key: "2",
+    sn: "2",
     firstName: "Olawale",
     lastName: "Ogundele",
     email: "jonsnow@hisemail.com",
@@ -81,8 +77,8 @@ const data = [
     clockInStatus: clockInStatus,
   },
   {
-    key: "1",
-    sn: "1",
+    key: "3",
+    sn: "3",
     firstName: "Olawale",
     lastName: "Ogundele",
     email: "jonsnow@hisemail.com",
@@ -96,13 +92,15 @@ const RecentClockIn = () => {
   return (
     <div>
       <div className=" flex justify-between">
-        <h1 className=" text-lg font-semibold text-[--green]">RECENT CLOCK-IN</h1>
+        <h1 className=" text-lg font-semibold text-[--green]">
+          RECENT CLOCK-IN
+        </h1>
         <Button
           type="primary"
           className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold flex items-center"
-          onClick={()=>{}}
+          onClick={() => {}}
         >
-          SEE  ALL
+          SEE ALL
         </Button>
       </div>
       <Table columns={columns} dataSource={data} />
