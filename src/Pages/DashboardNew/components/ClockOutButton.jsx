@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react";
-import useGetLocation from "../../../hooks/useGetLocation";
+import { useState } from "react";
 import { Button } from "antd";
+import { BASE_URL } from "../../../constants/baseUrl";
 
+// eslint-disable-next-line react/prop-types
 const ClockOutButton = () => {
-  const { lat, long, getUserLocation } = useGetLocation();
-
-  useEffect(() => {
-    getUserLocation();
-  }, [getUserLocation]);
-
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
   const clockOutHandler = async () => {
-    // console.log(lat, long);
     setLoading(true);
     try {
-      const clockIn = await fetch(
-        "https://ams-backend-yjri.onrender.com/clockout",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            location: `${lat}, ${long}`,
-          }),
-        }
-      );
+      const clockIn = await fetch(`${BASE_URL}clockout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        // body: JSON.stringify({
+        //   location: `${lat}, ${long}`,
+        // }),
+      });
       const response = await clockIn.json();
       // if (response?.responseMessage === "User Already Clocked In") {
       //   setLoading(false);
