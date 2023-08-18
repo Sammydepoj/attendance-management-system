@@ -1,4 +1,5 @@
 import { Button, Table, Tag } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const clockInStatus = false;
 
@@ -89,6 +90,7 @@ const data = [
 ];
 
 const RecentClockIn = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className=" flex justify-between">
@@ -98,7 +100,7 @@ const RecentClockIn = () => {
         <Button
           type="primary"
           className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold flex items-center"
-          onClick={() => {}}
+          onClick={() => {navigate("/dashboard/details/clockins");}}
         >
           SEE ALL
         </Button>
