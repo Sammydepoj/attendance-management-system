@@ -2,7 +2,7 @@ import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { TbCurrencyYen } from "react-icons/tb";
 import DemoColumn from "./Chart/Chart";
-import RecentClockIn from "./RecentClockIn";
+import RecentClockIn from "./ClockInHistory/RecentClockIn";
 const Details = () => {
   return (
     <div className="">

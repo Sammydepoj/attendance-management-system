@@ -16,7 +16,7 @@ const Sidebar = () => {
     {
       name: "Clock-Ins",
       icon: <CgNotes />,
-      link: "",
+      link: "/dashboard/details/clockins",
     },
     {
       name: "Profile",
