@@ -28,7 +28,7 @@ const Sidebar = () => {
     {
       name: "Participants",
       icon: <GoCommentDiscussion />,
-      link: "",
+      link: "/dashboard/details/participants",
     },
     // {
     //   name: "Live class",
@@ -46,16 +46,16 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className=" border-r-[#e9e6e6] border h-screen px-4">
+    <div className=" border-r-[#e9e6e6] border h-screen px-4 ">
       <div className=" flex p-4 gap-4 text-[--green] items-center">
-        <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md"></div>
+        <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md "></div>
         <div>
           <h1 className=" text-2xl font-semibold">Instructor</h1>
           <p className=" text-xs font-normal">DASHBOARD</p>
         </div>
       </div>
 
-      <ul className="mt-[2.4rem] mx-auto  grid">
+      <ul className="mt-[2.4rem] mx-auto grid">
         {navItems.map((item, index) => {
           return (
             <button
@@ -77,7 +77,7 @@ const Sidebar = () => {
                 }`}
               >
                 {item.icon}
-                <p>{item.name}</p>
+                <p className=" invisible md:visible">{item.name}</p>
               </li>
             </button>
           );

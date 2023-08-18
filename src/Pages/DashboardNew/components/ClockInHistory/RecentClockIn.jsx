@@ -93,7 +93,7 @@ const RecentClockIn = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className=" flex justify-between">
+      <div className=" flex justify-between mb-4">
         <h1 className=" text-lg font-semibold text-[--green]">
           RECENT CLOCK-IN
         </h1>

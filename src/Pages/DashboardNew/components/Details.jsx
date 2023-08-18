@@ -1,42 +1,49 @@
-import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
-import { TbCurrencyYen } from "react-icons/tb";
 import DemoColumn from "./Chart/Chart";
 import RecentClockIn from "./ClockInHistory/RecentClockIn";
 const Details = () => {
+  const items = [
+    {
+      icon: <FiUsers />,
+      title: "Total Participant",
+      value: "100",
+      textColor: "#A3AED0",
+    },
+    {
+      icon: <FiUsers />,
+      title: "Total Clocked-In Participant",
+      value: "80",
+      textColor: "#A3AED0",
+    },
+    {
+      icon: <FiUsers />,
+      title: "Total Absent Participant",
+      value: "80",
+      textColor: "#A3AED0",
+    },
+    {
+      icon: <FiUsers />,
+      title: "Total Clocked-Out Participant",
+      value: "16",
+      color: "rgb(96 165 250)",
+      textColor: "white",
+    },
+  ];
+
   return (
-    <div className="">
+    <div className=" overflow-x-hidden">
       <div>
-        <div className="grid grid-cols-4 gap-4 rounded-lg">
-          <div className=" bg-white shadow p-4 m-8 rounded-lg  ml-8 mr-16  h-24">
-            <h1 className="font-bold text-[--green] flex items-center gap-2 ">
-              Total Participants
-            </h1>
-            <p className=" text-gray-600 font-bold">100</p>
-          </div>
-          <div className="bg-white shadow p-4 m-8 rounded-lg  ml-8 mr-16">
-            <h1 className=" font-bold text-[--green] flex items-center gap-2">
-              <FaVideoSlash className="text-3xl" />
-              Total Clocked-In Participants
-            </h1>
-            <p className=" text-gray-600 font-bold">80</p>
-          </div>
-          <div className="bg-white shadow p-4 m-8 rounded-lg  ml-8 mr-16">
-            <h1 className="  font-bold text-[--green] flex items-center gap-2">
-              <FiUsers className="text-3xl" />
-              Total Absent Participants
-            </h1>
-            <p className=" text-gray-600 font-bold">20</p>
-          </div>
-          <div className=" shadow p-4 m-8 rounded-lg  ml-8 mr-16 bg-[--green]">
-            <h1 className=" font-bold text-white flex">
-              <TbCurrencyYen className="text-3xl" />
-              Total clocked Out Participants
-            </h1>
-            <p className="  font-bold text-white flex items-center gap-2">
-              540.50
-            </p>
-          </div>
+        <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
+          {items.map((item, index) => (
+            <div style={{ backgroundColor: item.color }} key={index} className=" bg-white shadow p-4 m-4 w-[12rem] rounded-lg  h-28">
+              {item.icon}
+              <h1 style={{ color : item.textColor }} className="font-bold flex items-center gap-2 ">
+               {item.title}
+              </h1>
+              <p className=" text-gray-600 font-bold">{item.value}</p>
+            </div>
+          ))}
+         
         </div>
       </div>
       <div>
