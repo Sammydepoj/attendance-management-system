@@ -1,7 +1,7 @@
 import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
-import { BsArrowRightShort } from "react-icons/bs";
 import { TbCurrencyYen } from "react-icons/tb";
+import DemoColumn from "./Chart/Chart";
 const Details = () => {
   return (
     <div className="">
@@ -70,23 +70,7 @@ const Details = () => {
             </p>
             <p className=" text-black ml-5">#34561</p>
           </div>
-          <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16">
-            <h1 className="font-bold text-black mt-3 ml-3 text-3xl">
-              Upcoming Tasks
-            </h1>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="border-l-4 border-[--green] p-4 ml-3 mt-3">
-              Enviroment Discuss
-            </p>
-            <p className="ml-[80%] text-[--green] flex items-center font-bold">
-              View all tasks <BsArrowRightShort />
-            </p>
-          </div>
+          <DemoColumn />
         </div>
       </div>
     </div>
