@@ -6,6 +6,7 @@ import Dashboard from "./Pages/DashboardNew/Dashboard";
 import Details from "./Pages/DashboardNew/components/Details";
 import { Link } from "react-router-dom";
 import Profile from "./Pages/Profile/Profile";
+import ClockInHistory from "./Pages/DashboardNew/components/ClockInHistory/ClockInHistory";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,8 +35,12 @@ function App() {
           element: <Details />,
         },
         {
-          path:"/dashboard/details/profile",
-          element: <Profile />
+          path: "/dashboard/details/profile",
+          element: <Profile />,
+        },
+        {
+          path: "/dashboard/details/clockins",
+          element: <ClockInHistory />,
         }
       ],
     },

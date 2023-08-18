@@ -1,3 +1,4 @@
+
 import React from 'react'
 import image from "../Profile/profile-image.avif"
 import {Input} from "antd"
@@ -61,4 +62,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Profile;

@@ -3,6 +3,7 @@ import SailLogo from "../../assets/SailInnovationLogo.png";
 import { Button, Col, Form, Input, Row } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/baseUrl";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -21,16 +22,13 @@ const Signin = () => {
   const loginHandler = async () => {
     setLoading(true);
     try {
-      const logIn = await fetch(
-        "https://ams-backend-yjri.onrender.com/signin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loginData),
-        }
-      );
+      const logIn = await fetch(`${BASE_URL}signin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
       const response = await logIn.json();
       localStorage.setItem("token", response.data.token);
       setLoading(false);
