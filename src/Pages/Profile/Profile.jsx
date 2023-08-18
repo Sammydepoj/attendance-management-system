@@ -1,5 +1,3 @@
-
-import React from 'react'
 import image from "../Profile/profile-image.avif"
 import {Input} from "antd"
 
