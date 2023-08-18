@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SailLogo from "../../assets/SailInnovationLogo.png";
 import { Button, Col, Form, Input, Row } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/baseUrl";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/dashboard/details", {
+        replace: true,
+      });
+    }
+  }, [navigate]);
+
   const loginHandler = async () => {
     setLoading(true);
     try {
-      const logIn = await fetch(
-        "https://ams-backend-yjri.onrender.com/signin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loginData),
-        }
-      );
+      const logIn = await fetch(`${BASE_URL}signin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
       const response = await logIn.json();
-      sessionStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", response.data.token);
       setLoading(false);
       console.log(response);
-      alert(response?.responseMessage);
+      if (response?.responseCode === "00") {
+        navigate("/dashboard/details", {
+          replace: true,
+          state: response?.data,
+        });
+      }
     } catch (error) {
       setLoading(false);
       console.log(error);

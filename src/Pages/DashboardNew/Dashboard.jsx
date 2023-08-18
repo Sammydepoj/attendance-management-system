@@ -1,24 +1,15 @@
 
-import { FaVideoSlash } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi"
-import { BsArrowRightShort } from "react-icons/bs"
-import { TbCurrencyYen } from "react-icons/tb"
-import { MdGraphicEq } from "react-icons/md"
-import { BiSearch } from "react-icons/bi"
+
 import Sidebar from "./components/SideBar";
 const Dashboard = () => {
+    const { state } = useLocation();
+    const time = new Date().getHours();
     return (
         <div className="grid grid-cols-[15rem_1fr]">
             <div className="bg-[--white]">
                 <Sidebar />
             </div>
-            <div >
-                <div className="flex justify-between p-4">
-                    <div className="">
-                        <p className=" text-black-600 font-bold">Hi ThickBaby.</p>
-                        <h1 className=" text-xl font-bold text-[--green]"> Welcome to SAIL!</h1>
-                    </div>
-                    <div className="bg-[--blur] shadow w-44 rounded-lg h-11">
+          
                         <div>
                             <div className="relative">
                                 <input
@@ -137,5 +128,3 @@ const Dashboard = () => {
         </div>
     )
 }
-
-export default Dashboard
