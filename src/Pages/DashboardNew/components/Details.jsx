@@ -2,6 +2,7 @@ import { FaVideoSlash } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { TbCurrencyYen } from "react-icons/tb";
+import RecentClockIn from "./RecentClockIn";
 const Details = () => {
   return (
     <div className="">
@@ -39,8 +40,8 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className="flex gap-0">
-          <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16 ml-8 mr-16">
+        <div className="flex gap-0 flex-wrap justify-center">
+          {/* <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16 ml-8 mr-16">
             <h1 className="font-bold text-[--green] mt-5 ml-5 text-black text-2xl">
               Top Courses
             </h1>
@@ -69,7 +70,11 @@ const Details = () => {
               india{" "}
             </p>
             <p className=" text-black ml-5">#34561</p>
-          </div>
+          </div> */}
+
+          <RecentClockIn />
+
+                        
           <div className="bg-white shadow rounded-lg  h-[20rem] w-[60%] m-16">
             <h1 className="font-bold text-black mt-3 ml-3 text-3xl">
               Upcoming Tasks
