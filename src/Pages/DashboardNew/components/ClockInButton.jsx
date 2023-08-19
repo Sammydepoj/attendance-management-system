@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useGetLocation from "../../../hooks/useGetLocation";
 import { Button } from "antd";
 import { BASE_URL } from "../../../constants/baseUrl";
+import toast from "react-hot-toast";
 
 const ClockInButton = () => {
   const { lat, long, getUserLocation } = useGetLocation();
@@ -11,7 +12,6 @@ const ClockInButton = () => {
   }, [getUserLocation]);
 
   const [loading, setLoading] = useState(false);
-  const [buttonText, setButtonText] = useState("Clock In");
   const token = localStorage.getItem("token");
   const clockInHandler = async () => {
     // console.log(lat, long);
@@ -28,17 +28,27 @@ const ClockInButton = () => {
         }),
       });
       const response = await clockIn.json();
-      if (clockIn.ok) {
-        setButtonText("Clocked In");
+      const time = new Date().getHours();
+      if (!clockIn.ok) {
+        toast.error(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
+      }
+      if (clockIn.ok && time <= 14) {
+        localStorage.setItem("clockInStatus", response.data.clockInStatus);
+        toast.success(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
       }
       setLoading(false);
       console.log(response);
-      alert(response?.responseMessage);
     } catch (error) {
       console.log(error);
     }
   };
-
+  const isClockedIn = localStorage.getItem("clockInStatus");
   return (
     <div>
       <Button
@@ -46,9 +56,9 @@ const ClockInButton = () => {
         type="primary"
         className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold flex items-center"
         onClick={clockInHandler}
-        disabled={buttonText === "Clocked In"}
+        disabled={!!isClockedIn}
       >
-        {buttonText}
+        {isClockedIn ? "Clocked In" : "Clock In"}
       </Button>
     </div>
   );
