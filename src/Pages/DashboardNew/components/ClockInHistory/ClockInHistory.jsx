@@ -177,7 +177,7 @@ const data = [
 
 const ClockInHistory = () => {
   return (
-    <div>
+    <div className=" max-w-[17rem] mx-[1rem] overflow-x-auto md:max-w-fit md:mx-[4rem]">
       <Table columns={columns} dataSource={data} />
     </div>
   );

@@ -23,6 +23,10 @@ const DemoColumn = () => {
     },
   };
 
-  return <Column {...config} />;
+  return (
+    <div className=" w-[20rem] overflow-x-auto">
+      <Column {...config} />
+    </div>
+  );
 };
 export default DemoColumn;

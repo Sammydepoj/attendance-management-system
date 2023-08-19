@@ -47,10 +47,10 @@ const Sidebar = () => {
 
   return (
     <div className=" border-r-[#e9e6e6] border h-screen px-4 ">
-      <div className=" flex p-4 gap-4 text-[--green] items-center">
+      <div className=" flex flex-wrap  p-4 gap-4 text-[--green] items-center">
         <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md "></div>
         <div>
-          <h1 className=" text-2xl font-semibold">Instructor</h1>
+          <h1 className=" text-lg font-semibold md:text-2xl">Admin</h1>
           <p className=" text-xs font-normal">DASHBOARD</p>
         </div>
       </div>
@@ -77,7 +77,7 @@ const Sidebar = () => {
                 }`}
               >
                 {item.icon}
-                <p className=" invisible md:visible">{item.name}</p>
+                <p className="hidden md:block">{item.name}</p>
               </li>
             </button>
           );
