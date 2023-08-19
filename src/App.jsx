@@ -43,10 +43,10 @@ function App() {
           path: "/dashboard/details/clockins",
           element: <ClockInHistory />,
         },
-         {
+        {
           path: "/dashboard/details/participants",
           element: <Participants />,
-        }
+        },
       ],
     },
   ]);
