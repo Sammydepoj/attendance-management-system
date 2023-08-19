@@ -1,12 +1,15 @@
 import { FiUsers } from "react-icons/fi";
 import DemoColumn from "./Chart/Chart";
 import RecentClockIn from "./ClockInHistory/RecentClockIn";
+import useGetParticipantInfo from "../../../hooks/useGetParticipants";
 const Details = () => {
+  const { participantsInfo } = useGetParticipantInfo();
+  console.log(participantsInfo);
   const items = [
     {
       icon: <FiUsers />,
       title: "Total Participant",
-      value: "100",
+      value: participantsInfo?.length,
       textColor: "#A3AED0",
     },
     {
@@ -29,21 +32,26 @@ const Details = () => {
       textColor: "white",
     },
   ];
-
   return (
     <div className=" overflow-x-hidden">
       <div>
         <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
           {items.map((item, index) => (
-            <div style={{ backgroundColor: item.color }} key={index} className=" bg-white shadow p-4 m-4 w-[12rem] rounded-lg  h-28">
+            <div
+              style={{ backgroundColor: item.color }}
+              key={index}
+              className=" bg-white shadow p-4 m-4 w-[12rem] rounded-lg  h-28"
+            >
               {item.icon}
-              <h1 style={{ color : item.textColor }} className="font-bold flex items-center gap-2 ">
-               {item.title}
+              <h1
+                style={{ color: item.textColor }}
+                className="font-bold flex items-center gap-2 "
+              >
+                {item.title}
               </h1>
               <p className=" text-gray-600 font-bold">{item.value}</p>
             </div>
           ))}
-         
         </div>
       </div>
       <div>
