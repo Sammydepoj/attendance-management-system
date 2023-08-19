@@ -47,7 +47,7 @@ const Signin = () => {
           position: "top-center",
         });
       }
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", response.data);
       setLoading(false);
       console.log(response);
     } catch (error) {

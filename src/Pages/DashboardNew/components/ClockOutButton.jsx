@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "antd";
 import { BASE_URL } from "../../../constants/baseUrl";
+import toast from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 const ClockOutButton = () => {
@@ -9,21 +10,28 @@ const ClockOutButton = () => {
   const clockOutHandler = async () => {
     setLoading(true);
     try {
-      const clockIn = await fetch(`${BASE_URL}clockout`, {
+      const clockOut = await fetch(`${BASE_URL}clockout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        // body: JSON.stringify({
-        //   location: `${lat}, ${long}`,
-        // }),
       });
-      const response = await clockIn.json();
-      // if (response?.responseMessage === "User Already Clocked In") {
-      //   setLoading(false);
-      // }
-      alert(response?.responseMessage);
+      const response = await clockOut.json();
+      const time = new Date().getHours();
+      if (!clockOut.ok) {
+        toast.error(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
+      }
+      if (clockOut.ok && time >= 14) {
+        localStorage.removeItem("clockInStatus");
+        toast.success(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
+      }
       console.log(response);
       setLoading(false);
     } catch (error) {
