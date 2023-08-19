@@ -43,7 +43,6 @@ const Dashboard = () => {
                 Welcome to SAIL!
               </h1>
             </div>
-            <ClockInButton />
             <div>{time >= 14 ? <ClockOutButton /> : <ClockInButton />}</div>
           </div>
           <Outlet />
