@@ -40,7 +40,7 @@ const Details = () => {
             <div
              style={{ backgroundColor: item.color }} 
              key={index} 
-             className=" bg-white shadow px-[2rem] py-1rem m-4 w-[10rem] md:w-fit rounded-lg">
+             className=" bg-white shadow px-[2rem] py-[1rem] m-4 w-[10rem] md:w-fit rounded-lg">
               {item.icon}
               <h1 style={{ color : item.textColor }} className="font-bold flex items-center gap-2 ">
                {item.title}
