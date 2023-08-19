@@ -4,6 +4,7 @@ import { Button, Col, Form, Input, Row } from "antd";
 import useGatherInputFields from "../../hooks/useGatheInputFields";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/baseUrl";
+import toast from "react-hot-toast";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -30,15 +31,25 @@ const Signin = () => {
         body: JSON.stringify(loginData),
       });
       const response = await logIn.json();
-      localStorage.setItem("token", response.data.token);
-      setLoading(false);
-      console.log(response);
-      if (response?.responseCode === "00") {
+      if (logIn.ok) {
+        toast.success(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
         navigate("/dashboard/details", {
           replace: true,
           state: response?.data,
         });
       }
+      if (!logIn.ok) {
+        toast.error(response.responseMessage, {
+          duration: 4000,
+          position: "top-center",
+        });
+      }
+      localStorage.setItem("token", response.data.token);
+      setLoading(false);
+      console.log(response);
     } catch (error) {
       setLoading(false);
       console.log(error);
