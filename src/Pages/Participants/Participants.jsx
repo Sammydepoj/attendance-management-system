@@ -36,7 +36,7 @@ const data = [
 
 const Participants = () => {
   return (
-    <div>
+    <div className="">
       <Table columns={columns} dataSource={data} />
     </div>
   );

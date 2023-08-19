@@ -32,22 +32,26 @@ const Details = () => {
 
   return (
     <div className=" overflow-x-hidden">
-      <div>
-        <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
-          {items.map((item, index) => (
-            <div style={{ backgroundColor: item.color }} key={index} className=" bg-white shadow p-4 m-4 w-[12rem] rounded-lg  h-28">
-              {item.icon}
-              <h1 style={{ color : item.textColor }} className="font-bold flex items-center gap-2 ">
-               {item.title}
-              </h1>
-              <p className=" text-gray-600 font-bold">{item.value}</p>
-            </div>
-          ))}
-         
-        </div>
+      <div className="flex flex-wrap rounded-lg mb-10 md:justify-evenly">
+        {items.map((item, index) => (
+          <div
+            style={{ backgroundColor: item.color }}
+            key={index}
+            className=" bg-white shadow px-[2rem] py-[1rem] m-4 w-[10rem] md:w-fit rounded-lg "
+          >
+            {item.icon}
+            <h1
+              style={{ color: item.textColor }}
+              className="font-bold flex items-center gap-2 "
+            >
+              {item.title}
+            </h1>
+            <p className=" text-gray-600 font-bold">{item.value}</p>
+          </div>
+        ))}
       </div>
       <div>
-        <div className="flex gap-4 flex-wrap justify-around mt-4">
+        <div className="md:flex gap-4 flex-wrap justify-between mx-8 mt-4 ">
           <RecentClockIn />
           <DemoColumn />
         </div>
