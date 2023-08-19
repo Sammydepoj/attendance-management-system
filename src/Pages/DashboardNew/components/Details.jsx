@@ -5,6 +5,7 @@ import useGetParticipantInfo from "../../../hooks/useGetParticipants";
 const Details = () => {
   const { participantsInfo } = useGetParticipantInfo();
   console.log(participantsInfo);
+ 
   const items = [
     {
       icon: <FiUsers />,
@@ -52,7 +53,7 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className="md:flex gap-4 flex-wrap justify-between mx-8 mt-4 ">
+        <div className="md:flex flex-wrap justify-center gap-[8rem] mx-8 mt-4 ">
           <RecentClockIn />
           <DemoColumn />
         </div>
