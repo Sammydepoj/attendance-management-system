@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { BASE_URL } from "../constants/baseUrl";
 
 const useGetParticipantInfo = () => {
-  const [participantsInfo, setUserInfo] = useState({});
+  const [participantsInfo, setUserInfo] = useState([]);
   const token = localStorage.getItem("token");
 
   const getUserInfo = useCallback(async () => {

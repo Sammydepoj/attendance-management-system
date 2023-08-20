@@ -55,35 +55,37 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <ul className="mt-[2.4rem] mx-auto grid">
-        {navItems.map((item, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => {
-                navigate(item.link, { replace: true });
-              }}
-              className={`${
-                location.pathname === item.link
-                  ? "bg-[--green] font-bold rounded-lg"
-                  : ""
-              }`}
-            >
-              <li
-                className={`text-xl flex items-center gap-4 p-4 ${
+      <div className=" flex flex-col gap-[14rem]">
+        <ul className="mt-[2.4rem] mx-auto grid">
+          {navItems.map((item, index) => {
+            return (
+              <button
+                key={index}
+                onClick={() => {
+                  navigate(item.link, { replace: true });
+                }}
+                className={`${
                   location.pathname === item.link
-                    ? "text-white"
-                    : " text-slate-400"
+                    ? "bg-[--green] font-bold rounded-lg"
+                    : ""
                 }`}
               >
-                {item.icon}
-                <p className="hidden md:block">{item.name}</p>
-              </li>
-            </button>
-          );
-        })}
-      </ul>
-      <LogoutButton />
+                <li
+                  className={`text-xl flex items-center gap-4 p-4 ${
+                    location.pathname === item.link
+                      ? "text-white"
+                      : " text-slate-400"
+                  }`}
+                >
+                  {item.icon}
+                  <p className="hidden md:block">{item.name}</p>
+                </li>
+              </button>
+            );
+          })}
+        </ul>
+        <LogoutButton />
+      </div>
     </div>
   );
 };
