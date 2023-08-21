@@ -36,7 +36,7 @@ const Details = () => {
   return (
     <div className="">
       <div>
-        <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
+        <div className="flex justify-evenly rounded-lg mb-10">
           {items.map((item, index) => (
             <div
               style={{ backgroundColor: item.color }}
@@ -56,7 +56,7 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] overflow-x-scroll ">
+        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] ">
           <RecentClockIn />
           <DemoColumn />
         </div>

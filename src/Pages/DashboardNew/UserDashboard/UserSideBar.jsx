@@ -2,7 +2,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { CgNotes } from "react-icons/cg";
 import { FiUsers } from "react-icons/fi";
 import { GoCommentDiscussion } from "react-icons/go";
-import LogoutButton from "../DashboardNew/components/LogoutButton";
+import LogoutButton from "../components/LogoutButton";
 import { useNavigate, useLocation } from "react-router";
 const UserSidebar = () => {
   const navigate = useNavigate();

@@ -31,14 +31,21 @@ const Signin = () => {
         body: JSON.stringify(loginData),
       });
       const response = await logIn.json();
+      // console.log(response);
       if (logIn.ok) {
         toast.success(response.responseMessage, {
           duration: 4000,
           position: "top-center",
         });
+      }
+      if (response?.data?.role === "ADMIN") {
         navigate("/dashboard/details", {
           replace: true,
-          state: response?.data,
+        });
+      }
+      if (response?.data?.role === "USER") {
+        navigate("/user", {
+          replace: true,
         });
       }
       if (!logIn.ok) {
@@ -47,9 +54,8 @@ const Signin = () => {
           position: "top-center",
         });
       }
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
       setLoading(false);
-      console.log(response);
     } catch (error) {
       setLoading(false);
       console.log(error);
