@@ -4,8 +4,6 @@ import RecentClockIn from "./ClockInHistory/RecentClockIn";
 import useGetParticipantInfo from "../../../hooks/useGetParticipants";
 const Details = () => {
   const { participantsInfo } = useGetParticipantInfo();
-  console.log(participantsInfo);
-
   const items = [
     {
       icon: <FiUsers />,
@@ -16,13 +14,13 @@ const Details = () => {
     {
       icon: <FiUsers />,
       title: "Total Clocked-In Participant",
-      value: "80",
+      value: "",
       textColor: "#A3AED0",
     },
     {
       icon: <FiUsers />,
       title: "Total Absent Participant",
-      value: "80",
+      value: "",
       textColor: "#A3AED0",
     },
     {
@@ -36,28 +34,32 @@ const Details = () => {
   return (
     <div className="">
       <div>
-        <div className="flex justify-evenly rounded-lg mb-10">
+        <div className="flex flex-wrap justify-evenly rounded-lg mb-10">
           {items.map((item, index) => (
             <div
               style={{ backgroundColor: item.color }}
               key={index}
-              className=" bg-white shadow px-[2rem] py-[1rem] m-2 w-[8rem] md:w-fit rounded-lg"
+              className=" bg-white shadow px-[2rem] py-[1rem] m-2 rounded-lg"
             >
-              {item.icon}
-              <h1
-                style={{ color: item.textColor }}
-                className="font-bold flex items-center gap-2 "
-              >
-                {item.title}
-              </h1>
-              <p className=" text-gray-600 font-bold">{item.value}</p>
+              <span className="flex items-center gap-2">
+                {item.icon}
+                <h1
+                  style={{ color: item.textColor }}
+                  className="font-bold flex items-center gap-2 "
+                >
+                  {item.title}
+                </h1>
+              </span>
+              <p className=" text-gray-600 font-bold text-center">
+                {item.value}
+              </p>
             </div>
           ))}
         </div>
       </div>
       <div>
-        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] ">
-          <RecentClockIn />
+        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] pl-4">
+          <RecentClockIn participantsInfo={participantsInfo} />
           <DemoColumn />
         </div>
       </div>
