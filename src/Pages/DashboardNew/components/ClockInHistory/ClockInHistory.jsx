@@ -178,7 +178,7 @@ const ClockInHistory = () => {
       },
     },
   ];
-  const data = participantsInfo.map((participant, index) => {
+  const data = participantsInfo?.map((participant, index) => {
     const clockInDate = new Date(participant.clockInDate);
     const clockOutDate = new Date(participant.clockOutDate);
     return {
