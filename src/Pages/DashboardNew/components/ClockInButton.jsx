@@ -49,7 +49,6 @@ const ClockInButton = () => {
       console.log(error);
     }
   };
-  const isClockedIn = localStorage.getItem("clockInStatus");
   return (
     <div>
       <Button
@@ -59,7 +58,7 @@ const ClockInButton = () => {
         onClick={clockInHandler}
         disabled={userInfo?.clockInStatus}
       >
-        {isClockedIn ? "Clocked In" : "Clock In"}
+        {userInfo?.clockInStatus ? "Clocked In" : "Clock In"}
       </Button>
     </div>
   );
