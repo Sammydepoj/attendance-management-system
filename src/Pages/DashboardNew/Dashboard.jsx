@@ -1,10 +1,7 @@
 import Sidebar from "./components/SideBar";
-import ClockInButton from "./components/ClockInButton";
 import { Outlet } from "react-router-dom";
-import ClockOutButton from "./components/ClockOutButton";
 import useGetUserInfo from "../../hooks/useGetUserInfo";
 const Dashboard = () => {
-  const time = new Date().getHours();
   const { userInfo } = useGetUserInfo("getUserInfo");
 
   return (
@@ -23,7 +20,6 @@ const Dashboard = () => {
               Welcome to SAIL!
             </h1>
           </div>
-          <div>{time >= 14 ? <ClockOutButton /> : <ClockInButton />}</div>
         </div>
         <Outlet />
       </div>

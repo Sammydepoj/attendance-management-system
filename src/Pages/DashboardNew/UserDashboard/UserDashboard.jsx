@@ -1,7 +1,7 @@
-import ClockOutButton from "../DashboardNew/components/ClockOutButton";
-import ClockInButton from "../DashboardNew/components/ClockInButton";
+import ClockOutButton from "../components/ClockOutButton";
+import ClockInButton from "../components/ClockInButton";
 import { Outlet } from "react-router";
-import useGetUserInfo from "../../hooks/useGetUserInfo";
+import useGetUserInfo from "../../../hooks/useGetUserInfo";
 import UserSidebar from "./UserSideBar";
 
 const UserDashboard = () => {

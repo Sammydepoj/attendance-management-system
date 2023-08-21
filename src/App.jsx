@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Profile from "./Pages/Profile/Profile";
 import ClockInHistory from "./Pages/DashboardNew/components/ClockInHistory/ClockInHistory";
 import Participants from "./Pages/Participants/Participants";
-import UserDashboard from "./Pages/UserDashboard/UserDashboard";
+import UserDashboard from "./Pages/DashboardNew/UserDashboard/UserDashboard";
 
 function App() {
   const router = createBrowserRouter([
