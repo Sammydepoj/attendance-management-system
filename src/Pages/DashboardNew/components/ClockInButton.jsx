@@ -3,9 +3,10 @@ import useGetLocation from "../../../hooks/useGetLocation";
 import { Button } from "antd";
 import { BASE_URL } from "../../../constants/baseUrl";
 import toast from "react-hot-toast";
-
+import useGetUserInfo from "../../../hooks/useGetUserInfo";
 const ClockInButton = () => {
   const { lat, long, getUserLocation } = useGetLocation();
+  const { userInfo } = useGetUserInfo("getUserInfo");
 
   useEffect(() => {
     getUserLocation();
@@ -56,7 +57,7 @@ const ClockInButton = () => {
         type="primary"
         className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold flex items-center"
         onClick={clockInHandler}
-        disabled={!!isClockedIn}
+        disabled={userInfo?.clockInStatus}
       >
         {isClockedIn ? "Clocked In" : "Clock In"}
       </Button>
