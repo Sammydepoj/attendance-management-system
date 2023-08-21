@@ -182,14 +182,14 @@ const ClockInHistory = () => {
     const clockInDate = new Date(participant.clockInDate);
     const clockOutDate = new Date(participant.clockOutDate);
     return {
-      key: participant.id,
+      key: index + 1,
       sn: index + 1,
       firstName: participant.firstName,
       lastName: participant.lastName,
       email: participant.email,
       clockInDate: participant.clockInDate,
-      clockInTime: clockInDate.toTimeString().substr(0, 8),
-      clockOutTime: clockOutDate.toTimeString().substr(0, 8),
+      clockInTime: clockInDate.toTimeString().substring(0, 8),
+      clockOutTime: clockOutDate.toTimeString().substring(0, 8),
       clockInStatus: participant.clockInStatus,
     };
   });

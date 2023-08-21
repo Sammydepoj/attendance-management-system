@@ -17,7 +17,7 @@ const useGetUserInfo = () => {
         },
       });
       const response = await request.json();
-      console.log(response.data);
+      // console.log(response.data);
       setUserInfo(response.data);
       setLoading(false);
     } catch (error) {
