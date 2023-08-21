@@ -4,8 +4,10 @@ import { BASE_URL } from "../constants/baseUrl";
 const useGetUserInfo = () => {
   const [userInfo, setUserInfo] = useState({});
   const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(false);
 
   const getUserInfo = useCallback(async () => {
+    setLoading(true);
     try {
       const request = await fetch(`${BASE_URL}getUserInfo`, {
         method: "GET",
@@ -15,17 +17,19 @@ const useGetUserInfo = () => {
         },
       });
       const response = await request.json();
-    //   console.log(response);
+      console.log(response.data);
       setUserInfo(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   }, [token]);
 
   useEffect(() => {
     getUserInfo();
   }, [getUserInfo]);
-  return { userInfo };
+  return { userInfo, loading };
 };
 
 export default useGetUserInfo;

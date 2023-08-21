@@ -1,75 +1,68 @@
 import image from "../Profile/profile-image.avif";
-import { Input } from "antd";
-import useGatherInputFields from "../../hooks/useGatheInputFields";
-import { useState } from "react";
-
+import useGetUserInfo from "../../hooks/useGetUserInfo";
+import { Spin } from "antd";
 const Profile = () => {
-  const [formData, setFormData] = useState();
-
-  const { setEventInputs } = useGatherInputFields(setFormData);
+  const { userInfo, loading } = useGetUserInfo("getUserInfo");
 
   return (
-    <div className="  mx-9 h-[75vh] m-3">
-      <div className="bg-white h-[35vh] grid grid-cols-4">
-        <div>
+    <Spin spinning={loading}>
+      <div className="  mx-9  m-3">
+        <div className="flex items-center gap-4">
           <img
             src={image}
             alt="image-profile"
             className="h-[10rem] p-5 rounded-[8rem]"
           />
-          <h4 className="ml-5">Accounts</h4>
-          <hr className="w-screen mt-[12px]" />
-        </div>
 
-        <div className="p-8">
-          <h2>John Doe</h2>
-          <p>
-            <a href="text@gmail.com" className="hover:text-blue-400">
-              text@gmail.com
-            </a>{" "}
-            - User
-          </p>
+          <h2>
+            {userInfo?.firstName + " " + userInfo?.lastName}
+            <span> - {userInfo?.role}</span>
+          </h2>
+        </div>
+        <h4 className="ml-5">Accounts</h4>
+        <hr className="w-full mt-[12px]" />
+        <div className="grid gap-4 mt-8">
+          <div className="grid grid-cols-[10rem_10rem]">
+            <p className="">Full name : </p>
+            <p>{userInfo?.firstName + " " + userInfo?.lastName}</p>
+          </div>
+          <div className="grid grid-cols-[10rem_10rem]">
+            <p className="">Email : </p>
+            <p>{userInfo?.email}</p>
+          </div>
+          {userInfo?.sex && (
+            <div className="grid grid-cols-[10rem_10rem]">
+              <p className="">Gender : </p>
+              <p>{userInfo?.sex}</p>
+            </div>
+          )}
+          {userInfo?.lga && (
+            <div className="grid grid-cols-[10rem_10rem]">
+              <p className="">Local Govt. Area : </p>
+              <p>{userInfo?.lga}</p>
+            </div>
+          )}
+          {userInfo?.programme && (
+            <div className="grid grid-cols-[10rem_10rem]">
+              <p className="">Programme : </p>
+              <p>{userInfo?.programme}</p>
+            </div>
+          )}
+          {userInfo?.occupation && (
+            <div className="grid grid-cols-[10rem_10rem]">
+              <p className="">Occupation : </p>
+              <p>{userInfo?.occupation}</p>
+            </div>
+          )}
+          {userInfo?.techStack && (
+            <div className="grid grid-cols-[10rem_10rem]">
+              <p className="">Tech Stack : </p>
+              <p>{userInfo?.techStack?.toUpperCase()}</p>
+            </div>
+          )}
         </div>
       </div>
-
-      <div className="bg-white h-[40vh] max-w-screen-sm">
-        <div className="flex justify-between pt-[0.5rem]">
-          <h3 className="pl-[1rem] pt-[0.5rem]">Full name</h3>
-          <Input
-            onChange={(e) => {
-              setEventInputs(e.target.value, "email");
-            }}
-            name="Username"
-            type="Username"
-            id="Username"
-            className=" bg-gray-100 py-2"
-          />
-        </div>
-        <div className="flex justify-evenly pt-[0.5rem]">
-          <h3 className="pl-[1rem] pt-[0.5rem]">Email</h3>
-          <Input
-            onChange={(e) => {
-              setEventInputs(e.target.value, "email");
-            }}
-            name="email"
-            type="email"
-            className="py-2  bg-gray-100 "
-          />
-        </div>
-        <div className="flex justify-evenly pt-[0.5rem]">
-          <h3 className="pl-[1rem] pt-[0.5rem]">Password</h3>
-          <Input
-            onChange={(e) => {
-              setEventInputs(e.target.value, "email");
-            }}
-            name="password"
-            type="text"
-            id="password"
-            className="py-2 bg-gray-100 "
-          />
-        </div>
-      </div>
-    </div>
+    </Spin>
   );
 };
 

@@ -34,7 +34,7 @@ const Details = () => {
     },
   ];
   return (
-    <div className=" overflow-x-auto">
+    <div className="">
       <div>
         <div className="flex justify-evenly rounded-lg mb-10">
           {items.map((item, index) => (
@@ -56,7 +56,7 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className="md:flex flex-wrap justify-between gap-[2rem] mx-8 my-4 ">
+        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] overflow-x-scroll ">
           <RecentClockIn />
           <DemoColumn />
         </div>
