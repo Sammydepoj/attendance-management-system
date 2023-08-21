@@ -36,7 +36,7 @@ const Details = () => {
   return (
     <div className=" overflow-x-auto">
       <div>
-        <div className="flex justify-evenly rounded-lg mb-10">
+        <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
           {items.map((item, index) => (
             <div
               style={{ backgroundColor: item.color }}

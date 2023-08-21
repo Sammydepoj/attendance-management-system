@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Profile from "./Pages/Profile/Profile";
 import ClockInHistory from "./Pages/DashboardNew/components/ClockInHistory/ClockInHistory";
 import Participants from "./Pages/Participants/Participants";
+import UserDashboard from "./Pages/UserDashboard/UserDashboard";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
     {
       element: <SignUp />,
       path: "/signup",
+    },
+    {
+      path: "/user",
+      element: <UserDashboard />,
     },
     {
       element: <Dashboard />,
