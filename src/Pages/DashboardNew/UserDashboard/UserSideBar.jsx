@@ -41,7 +41,7 @@ const UserSidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-[14rem]">
+      <div className=" flex flex-col gap-[10rem]">
         <ul className="mt-[2.4rem] mx-auto grid gap-4">
           {navItems.map((item, index) => {
             return (

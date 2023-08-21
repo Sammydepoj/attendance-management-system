@@ -18,9 +18,10 @@ const UserProfile = () => {
             {userInfo?.firstName + " " + userInfo?.lastName}
             <span> - {userInfo?.role}</span>
           </h2>
+
+          <h4 className="ml-5">Accounts</h4>
+          <hr className="w-full mt-[12px]" />
         </div>
-        <h4 className="ml-5">Accounts</h4>
-        <hr className="w-full mt-[12px]" />
         <div className="grid gap-4 mt-8">
           <div className="grid grid-cols-[10rem_10rem]">
             <p className="">Full name : </p>

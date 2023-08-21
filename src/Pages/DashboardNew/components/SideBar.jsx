@@ -55,7 +55,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-[14rem]">
+      <div className=" flex flex-col gap-[10rem]">
         <ul className="mt-[2.4rem] mx-auto grid">
           {navItems.map((item, index) => {
             return (
