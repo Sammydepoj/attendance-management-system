@@ -13,8 +13,19 @@ const Signin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    const isAdmin =
+      localStorage.getItem("token") &&
+      localStorage.getItem("userRole") === "ADMIN";
+    const isUser =
+      localStorage.getItem("token") &&
+      localStorage.getItem("userRole") === "USER";
+    if (isAdmin) {
       navigate("/dashboard/details", {
+        replace: true,
+      });
+    }
+    if (isUser) {
+      navigate("/user/dashboard/", {
         replace: true,
       });
     }
@@ -44,7 +55,7 @@ const Signin = () => {
         });
       }
       if (response?.data?.role === "USER") {
-        navigate("/user", {
+        navigate("/user/dashboard/", {
           replace: true,
         });
       }
@@ -55,6 +66,7 @@ const Signin = () => {
         });
       }
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userRole", response.data.role);
       setLoading(false);
     } catch (error) {
       setLoading(false);

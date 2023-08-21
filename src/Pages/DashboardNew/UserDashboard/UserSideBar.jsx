@@ -11,7 +11,7 @@ const UserSidebar = () => {
     {
       name: "Dashboard",
       icon: <BiSolidDashboard />,
-      link: "",
+      link: "/user/dashboard/",
     },
     {
       name: "Clock-Ins",
@@ -21,7 +21,7 @@ const UserSidebar = () => {
     {
       name: "Profile",
       icon: <FiUsers />,
-      link: "",
+      link: "/user/dashboard/profile",
     },
 
     {
@@ -29,33 +29,20 @@ const UserSidebar = () => {
       icon: <GoCommentDiscussion />,
       link: "",
     },
-    // {
-    //   name: "Live class",
-    //   icon: <AiOutlineVideoCamera />,
-    // },
-    // {
-    //   name: "Transaction",
-    //   icon: <AiOutlineWallet />,
-    // },
-    // {
-    //   name: "Settings",
-    //   icon: <FiSettings />,
-    //   link: "",
-    // },
   ];
 
   return (
-    <div className=" border-r-[#e9e6e6] border h-screen px-4 ">
-      <div className=" flex flex-wrap  p-4 gap-4 text-[--green] items-center">
-        <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md "></div>
+    <div className=" border-r-[#e9e6e6] border h-screen md:px-4 ">
+      <div className=" flex flex-wrap p-2 md:p-4 gap-4 text-[--green] justify-center items-center">
+        <div className=" bg-[--green] w-[2rem] h-[2rem] sm:h-[3rem] sm:w-[3rem] rounded-md "></div>
         <div>
           <h1 className=" text-lg font-semibold md:text-2xl">Student</h1>
-          <p className=" text-xs font-normal">DASHBOARD</p>
+          <p className=" text-center text-xs font-normal">DASHBOARD</p>
         </div>
       </div>
 
       <div className=" flex flex-col gap-[14rem]">
-        <ul className="mt-[2.4rem] mx-auto grid">
+        <ul className="mt-[2.4rem] mx-auto grid gap-4">
           {navItems.map((item, index) => {
             return (
               <button
@@ -70,7 +57,7 @@ const UserSidebar = () => {
                 }`}
               >
                 <li
-                  className={`text-xl flex items-center gap-4 p-4 ${
+                  className={`text-xl flex items-center gap-4 p-2 sm:p-4 ${
                     location.pathname === item.link
                       ? "text-white"
                       : " text-slate-400"
