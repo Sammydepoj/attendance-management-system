@@ -5,7 +5,7 @@ import useGetParticipantInfo from "../../../hooks/useGetParticipants";
 const Details = () => {
   const { participantsInfo } = useGetParticipantInfo();
   console.log(participantsInfo);
- 
+
   const items = [
     {
       icon: <FiUsers />,
@@ -34,26 +34,29 @@ const Details = () => {
     },
   ];
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" overflow-x-auto">
       <div>
-        <div className="flex justify-evenly flex-wrap rounded-lg mb-10">
+        <div className="flex justify-evenly rounded-lg mb-10">
           {items.map((item, index) => (
             <div
-             style={{ backgroundColor: item.color }} 
-             key={index} 
-             className=" bg-white shadow px-[2rem] py-[1rem] m-4 w-[10rem] md:w-fit rounded-lg">
+              style={{ backgroundColor: item.color }}
+              key={index}
+              className=" bg-white shadow px-[2rem] py-[1rem] m-2 w-[8rem] md:w-fit rounded-lg"
+            >
               {item.icon}
-              <h1 style={{ color : item.textColor }} className="font-bold flex items-center gap-2 ">
-               {item.title}
+              <h1
+                style={{ color: item.textColor }}
+                className="font-bold flex items-center gap-2 "
+              >
+                {item.title}
               </h1>
               <p className=" text-gray-600 font-bold">{item.value}</p>
             </div>
           ))}
-         
         </div>
       </div>
       <div>
-        <div className="md:flex flex-wrap justify-center gap-[8rem] mx-8 mt-4 ">
+        <div className="md:flex flex-wrap justify-between gap-[2rem] mx-8 my-4 ">
           <RecentClockIn />
           <DemoColumn />
         </div>

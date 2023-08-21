@@ -14,7 +14,7 @@ const Dashboard = () => {
       </div>
 
       <div className=" w-fit">
-        <div className=" p-8 flex flex-wrap gap-4  md:justify-between items-center  ">
+        <div className=" p-8 flex flex-wrap gap-4 justify-between items-center  ">
           <div>
             <p className=" text-black-600 font-bold">Hi {userInfo?.firstName + " " + userInfo?.lastName}</p>
             <h1 className=" text-xl font-bold text-[--green]">

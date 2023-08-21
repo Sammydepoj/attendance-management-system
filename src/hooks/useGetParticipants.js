@@ -3,9 +3,11 @@ import { BASE_URL } from "../constants/baseUrl";
 
 const useGetParticipantInfo = () => {
   const [participantsInfo, setUserInfo] = useState([]);
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
 
   const getUserInfo = useCallback(async () => {
+    setLoading(true);
     try {
       const request = await fetch(`${BASE_URL}getAllParticipants`, {
         method: "GET",
@@ -15,9 +17,11 @@ const useGetParticipantInfo = () => {
         },
       });
       const response = await request.json();
-      console.log(response);
+      console.log(response.data);
+      setLoading(false);
       setUserInfo(response.data);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   }, [token]);
@@ -25,7 +29,7 @@ const useGetParticipantInfo = () => {
   useEffect(() => {
     getUserInfo();
   }, [getUserInfo]);
-  return { participantsInfo };
+  return { participantsInfo, loading };
 };
 
 export default useGetParticipantInfo;
