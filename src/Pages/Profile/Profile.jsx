@@ -6,32 +6,31 @@ const Profile = () => {
 
   return (
     <Spin spinning={loading}>
-      <div className="  mx-9  m-3">
-        <div className="flex items-center gap-4">
+      <div className="  mx-9  m-3 flex gap-[4rem]">
+        <div className="flex flex-col justify-center items-center gap-4">
           <img
             src={image}
             alt="image-profile"
-            className="h-[10rem] p-5 rounded-[8rem]"
+            className="h-[14rem] w-[14rem] p-5 rounded-md"
           />
-
-          <h2>
+        <hr className="w-full mt-[12px]" />
+          <h2 className=" bg-slate-100 p-4 rounded-md font-semibold">
             {userInfo?.firstName + " " + userInfo?.lastName}
             <span> - {userInfo?.role}</span>
           </h2>
-        </div>
-        <h4 className="ml-5">Accounts</h4>
-        <hr className="w-full mt-[12px]" />
-        <div className="grid gap-4 mt-8">
-          <div className="grid grid-cols-[10rem_10rem]">
+  
+         </div>
+        <div className="grid gap-4 mt-8 ">
+          <div className="grid grid-cols-[1fr_1fr] h-[4rem] bg-slate-100 p-4 rounded-md font-medium">
             <p className="">Full name : </p>
             <p>{userInfo?.firstName + " " + userInfo?.lastName}</p>
           </div>
-          <div className="grid grid-cols-[10rem_10rem]">
+          <div className="grid grid-cols-[1fr_1fr] h-[4rem] bg-slate-100 p-4 rounded-md font-medium">
             <p className="">Email : </p>
             <p>{userInfo?.email}</p>
           </div>
           {userInfo?.sex && (
-            <div className="grid grid-cols-[10rem_10rem]">
+            <div className="grid grid-cols-[1fr_1fr] h-[4rem] bg-slate-100 p-4 rounded-md font-medium">
               <p className="">Gender : </p>
               <p>{userInfo?.sex}</p>
             </div>
