@@ -33,7 +33,7 @@ const Participants = () => {
     },
   ];
 
-  const data = participantsInfo.map((participant, index) => {
+  const data = participantsInfo?.map((participant, index) => {
     return {
       key: participant.id,
       sn: index + 1,
