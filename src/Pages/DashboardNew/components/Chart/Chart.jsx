@@ -24,7 +24,7 @@ const DemoColumn = () => {
   };
 
   return (
-    <div className=" w-[20rem] overflow-x-auto">
+    <div className=" w-[30rem]">
       <Column {...config} />
     </div>
   );

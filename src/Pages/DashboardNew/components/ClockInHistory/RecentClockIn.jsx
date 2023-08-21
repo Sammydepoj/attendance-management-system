@@ -23,11 +23,11 @@ const columns = [
     dataIndex: "lastName",
     key: "lastName",
   },
-  {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
-  },
+  // {
+  //   title: "Email",
+  //   dataIndex: "email",
+  //   key: "email",
+  // },
   {
     title: "Clock-In Time",
     dataIndex: "clockInTime",
@@ -62,7 +62,7 @@ const data = [
     sn: "1",
     firstName: "Olawale",
     lastName: "Ogundele",
-    email: "jonsnow@hisemail.com",
+    // email: "jonsnow@hisemail.com",
     clockInTime: "8:45",
     clockOutTime: "2:45",
     clockInStatus: clockInStatus,
@@ -72,7 +72,7 @@ const data = [
     sn: "2",
     firstName: "Olawale",
     lastName: "Ogundele",
-    email: "jonsnow@hisemail.com",
+    // email: "jonsnow@hisemail.com",
     clockInTime: "8:45",
     clockOutTime: "2:45",
     clockInStatus: clockInStatus,
@@ -82,7 +82,7 @@ const data = [
     sn: "3",
     firstName: "Olawale",
     lastName: "Ogundele",
-    email: "jonsnow@hisemail.com",
+    // email: "jonsnow@hisemail.com",
     clockInTime: "8:45",
     clockOutTime: "2:45",
     clockInStatus: true,
@@ -92,7 +92,7 @@ const data = [
 const RecentClockIn = () => {
   const navigate = useNavigate();
   return (
-    <div  className=" max-w-[20rem] overflow-x-auto md:max-w-[30rem]">
+    <div className="w-full overflow-x-auto md:max-w-[30rem]">
       <div className=" flex justify-between mb-4">
         <h1 className=" text-lg font-semibold text-[--green]">
           RECENT CLOCK-IN
@@ -100,7 +100,9 @@ const RecentClockIn = () => {
         <Button
           type="primary"
           className=" bg-blue-400 p-4 rounded-md text-slate-200 font-bold flex items-center"
-          onClick={() => {navigate("/dashboard/details/clockins");}}
+          onClick={() => {
+            navigate("/dashboard/details/clockins");
+          }}
         >
           SEE ALL
         </Button>

@@ -1,9 +1,8 @@
-import { Table } from "antd";
-import { useState } from "react";
+import { Table, Spin } from "antd";
 import useGetParticipantInfo from "../../hooks/useGetParticipants";
 
 const Participants = () => {
-  const { participantsInfo } = useGetParticipantInfo();
+  const { participantsInfo, loading } = useGetParticipantInfo();
 
   const columns = [
     {
@@ -27,6 +26,11 @@ const Participants = () => {
       dataIndex: "email",
       key: "email",
     },
+    {
+      title: "Programme",
+      dataIndex: "programme",
+      key: "programme",
+    },
   ];
 
   const data = participantsInfo.map((participant, index) => {
@@ -36,14 +40,16 @@ const Participants = () => {
       firstName: participant.firstName,
       lastName: participant.lastName,
       email: participant.email,
+      programme: participant.programme,
     };
   });
 
-  
   return (
-    <div className=" w-[23.5rem] overflow-x-auto md:w-fit md:mx-[2rem] lg:mx-[4rem]">
-      <Table columns={columns} dataSource={data} />
-    </div>
+    <Spin spinning={loading}>
+      <div className="overflow-x-auto">
+        <Table columns={columns} dataSource={data} />
+      </div>
+    </Spin>
   );
 };
 
