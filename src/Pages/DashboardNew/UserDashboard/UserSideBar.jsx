@@ -32,7 +32,7 @@ const UserSidebar = () => {
   ];
 
   return (
-    <div className=" border-r-[#e9e6e6] border h-screen md:px-4 ">
+    <div className=" border-r-[#e9e6e6] border h-screen md:px-4">
       <div className=" flex flex-wrap p-2 md:p-4 gap-4 text-[--green] justify-center items-center">
         <div className=" bg-[--green] w-[2rem] h-[2rem] sm:h-[3rem] sm:w-[3rem] rounded-md "></div>
         <div>
