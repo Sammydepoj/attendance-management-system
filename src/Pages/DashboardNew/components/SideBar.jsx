@@ -46,7 +46,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className=" border-r-[#e9e6e6] border h-screen px-4 ">
+    <div className=" border-r-[#e9e6e6] border h-screen px-4 fixed top-0 left-0">
       <div className=" flex flex-wrap  p-4 gap-4 text-[--green] items-center">
         <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md "></div>
         <div>
@@ -55,7 +55,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-[10rem]">
+      <div className=" flex flex-col gap-[14rem]">
         <ul className="mt-[2.4rem] mx-auto grid">
           {navItems.map((item, index) => {
             return (
