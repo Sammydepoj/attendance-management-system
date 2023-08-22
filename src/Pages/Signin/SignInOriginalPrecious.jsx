@@ -36,7 +36,6 @@ const Signin = () => {
       if (response?.responseCode === "00") {
         navigate("/dashboard/details", {
           replace: true,
-          
           state: response?.data,
         });
       }
@@ -48,18 +47,17 @@ const Signin = () => {
   const { setEventInputs } = useGatherInputFields(setLoginData);
 
   return (
-    <div className="grid-cols-2 max-sm:flex flex-col items-center justify-center h-screen
-    ">
-      <div className="mx-[2rem] max-sm:mb-6 w-[15rem]">
+    <div className=" grid-cols-2  h-[100svh]">
+      <div className="w-[10rem] mx-[2rem]">
         <img src={SailLogo} alt="SailLogo" />
       </div>
 
-      <div className="p-10  justify-center m-auto my-[4rem++++++++++++] items-center bg-white w-[25rem] sm:w-[25rem]">
-        <div className="text-center text-2xl font-bold mb-6">
+      <div className="  justify-center m-auto my-[4rem] items-center bg-white w-[25rem]">
+        <div className="text-center  text-2xl font-bold">
           <h1>Sign In</h1>
         </div>
-        <div className="h-80 mt-4 flex flex-col justify-between">
-          <div>
+        <div className="block justify-center items-center flex-col  h-80 mt-10 ">
+          <div className="ml-[1.4rem]">
             <Form
               layout="vertical"
               onFinish={loginHandler}

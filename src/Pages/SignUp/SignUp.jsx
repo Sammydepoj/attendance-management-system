@@ -34,18 +34,18 @@ const SignUp = () => {
   const { setEventInputs } = useGatherInputFields(setFormData);
 
   return (
-    <div className="grid-cols-2  h-[100svh]">
-      <div className="w-[10rem] mx-[2rem]">
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="mb-6 w-[15rem]">
         <img src={SailLogo} alt="SailLogo" />
       </div>
 
-      <div className=" justify-center m-auto items-center bg-white w-[25rem]">
-        <div className="text-center text-2xl font-bold">
+      <div className="bg-white rounded-lg p-6 w-full sm:w-[25rem] ">
+        <div className="text-center text-2xl font-bold mb-6">
           <h1>Sign Up</h1>
         </div>
 
-        <div className="block justify-center items-center flex-col h-80 mt-10">
-          <div className="ml-[1.4rem]">
+        <div className="flex flex-col space-y-4">
+          <div>
             <Form
               layout="vertical"
               onFinish={formSubmitHandler}
@@ -216,7 +216,7 @@ const SignUp = () => {
                   </Button>
                 </Col>
                 <Col span={24}>
-                  <span className="text-sm font-normal md-2 pl-[1rem] ">
+                  <span className="text-center">
                     Already have an account? <Link to="/" className="text-[#75C2F6]">Sign In</Link>
                   </span>
                 </Col>
