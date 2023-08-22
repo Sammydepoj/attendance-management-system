@@ -2,6 +2,8 @@ import Sidebar from "./components/SideBar";
 import ClockInButton from "./components/ClockInButton"
 import { Outlet, useLocation } from "react-router-dom";
 import ClockOutButton from "./components/ClockOutButton"
+import useGetUserInfo from "../../hooks/useGetUserInfo";
+
 
 const Dashboard = () => {
     const { state } = useLocation();

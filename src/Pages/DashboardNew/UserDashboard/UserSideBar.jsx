@@ -2,61 +2,47 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { CgNotes } from "react-icons/cg";
 import { FiUsers } from "react-icons/fi";
 import { GoCommentDiscussion } from "react-icons/go";
-import LogoutButton from "./LogoutButton";
+import LogoutButton from "../components/LogoutButton";
 import { useNavigate, useLocation } from "react-router";
-const Sidebar = () => {
+const UserSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const navItems = [
     {
       name: "Dashboard",
       icon: <BiSolidDashboard />,
-      link: "/dashboard/details",
+      link: "/user/dashboard/",
     },
     {
       name: "Clock-Ins",
       icon: <CgNotes />,
-      link: "/dashboard/details/clockins",
+      link: "",
     },
     {
       name: "Profile",
       icon: <FiUsers />,
-
-      link: "/dashboard/details/profile",
+      link: "/user/dashboard/profile",
     },
 
     {
       name: "Participants",
       icon: <GoCommentDiscussion />,
-      link: "/dashboard/details/participants",
+      link: "",
     },
-    // {
-    //   name: "Live class",
-    //   icon: <AiOutlineVideoCamera />,
-    // },
-    // {
-    //   name: "Transaction",
-    //   icon: <AiOutlineWallet />,
-    // },
-    // {
-    //   name: "Settings",
-    //   icon: <FiSettings />,
-    //   link: "",
-    // },
   ];
 
   return (
-    <div className=" border-r-[#e9e6e6] border h-screen px-4 ">
-      <div className=" flex flex-wrap  p-4 gap-4 text-[--green] items-center">
-        <div className=" bg-[--green] h-[3rem] w-[3rem] rounded-md "></div>
+    <div className=" border-r-[#e9e6e6] border h-screen md:px-4 ">
+      <div className=" flex flex-wrap p-2 md:p-4 gap-4 text-[--green] justify-center items-center">
+        <div className=" bg-[--green] w-[2rem] h-[2rem] sm:h-[3rem] sm:w-[3rem] rounded-md "></div>
         <div>
-          <h1 className=" text-lg font-semibold md:text-2xl">Admin</h1>
-          <p className=" text-xs font-normal">DASHBOARD</p>
+          <h1 className=" text-lg font-semibold md:text-2xl">Student</h1>
+          <p className=" text-center text-xs font-normal">DASHBOARD</p>
         </div>
       </div>
 
       <div className=" flex flex-col gap-[10rem]">
-        <ul className="mt-[2.4rem] mx-auto grid">
+        <ul className="mt-[2.4rem] mx-auto grid gap-4">
           {navItems.map((item, index) => {
             return (
               <button
@@ -71,7 +57,7 @@ const Sidebar = () => {
                 }`}
               >
                 <li
-                  className={`text-xl flex items-center gap-4 p-4 ${
+                  className={`text-xl flex items-center gap-4 p-2 sm:p-4 ${
                     location.pathname === item.link
                       ? "text-white"
                       : " text-slate-400"
@@ -90,4 +76,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default UserSidebar;

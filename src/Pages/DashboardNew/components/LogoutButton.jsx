@@ -5,6 +5,7 @@ const LogoutButton = () => {
   const navigate = useNavigate();
   const logoutHandler = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userRole");
     navigate("/", {
       replace: true,
     });
@@ -12,11 +13,11 @@ const LogoutButton = () => {
   return (
     <div className=" flex items-center">
       <button
-        className="flex items-center  justify-center mt-[5.5rem] gap-4 p-4  text-slate-400 text-xl "
+        className="flex items-center  justify-center gap-4 p-4  text-slate-400 text-xl "
         onClick={logoutHandler}
       >
         <BiLogOut />
-        <p>Log Out</p>
+        <p className=" hidden md:block">Log Out</p>
       </button>
     </div>
   );
