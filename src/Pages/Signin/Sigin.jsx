@@ -76,12 +76,12 @@ const Signin = () => {
   const { setEventInputs } = useGatherInputFields(setLoginData);
 
   return (
-    <div className=" flex flex-col items-center justify-center min-h-screen ">
-      <div className="w-[10rem] mx-[2rem]">
+    <div className="  min-h-screen ">
+      <div className="w-[10rem]  mx-2">
         <img src={SailLogo} alt="SailLogo" />
       </div>
 
-      <div className="  w-full max-w-md mx-auto p-8 bg-white  ">
+      <div className=" flex flex-col items-center justify-center w-full max-w-md mx-auto p-8 bg-white  ">
         <div className="text-center  text-2xl font-bold mb-4">
           <h1>Sign In</h1>
         </div>
