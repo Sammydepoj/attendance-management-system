@@ -2,22 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-} */
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  max-width: 1440px;
-}
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+:root {
+    --green: rgb(96 165 250);
+    --gray: #A3AED0;
+    --gold:#FFB547;
+    --white:#FFFFFF;
+    --blur: #F4F7FE;
   }
-} */
+
+
+
+
