@@ -1,12 +1,45 @@
-import { useState, useEffect } from "react";
-import { Pie, G2 } from "@ant-design/plots";
-import { chartData } from "./data";
+import { useState, useEffect, useCallback } from "react";
+import { Pie } from "@ant-design/plots";
+import useGetParticipantInfo from "../../../../hooks/useGetParticipants";
+
 const DemoColumn = () => {
   const [data, setData] = useState([]);
 
+  const { participantsInfo } = useGetParticipantInfo();
+  const getChartData = useCallback(() => {
+    // console.log(participantsInfo[0])
+    const present = participantsInfo?.filter(
+      (present) => present.clockInStatus
+    );
+
+    const absent = participantsInfo?.filter((absent) => !absent.clockInStatus);
+
+    const clockOuts = participantsInfo?.filter(
+      (clockOut) => clockOut.clockInStatus == false
+    );
+    setData([
+      // {
+      //   type: "Total Clocked-In Participants",
+      //   value: participantsInfo.length,
+      // },
+      {
+        type: "Total Present Participants",
+        value: present?.length,
+      },
+      {
+        type: "Total Absent Participants",
+        value: absent?.length,
+      },
+      {
+        type: "Total Clocked-Out Participants",
+        value: clockOuts?.length,
+      },
+    ]);
+  }, [participantsInfo]);
+
   useEffect(() => {
-    setData(chartData);
-  }, []);
+    getChartData();
+  }, [getChartData]);
   // const { registerTheme } = G2;
   // registerTheme("custom-theme", {
   //   colors10: [
