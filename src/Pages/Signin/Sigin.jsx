@@ -76,13 +76,13 @@ const Signin = () => {
   const { setEventInputs } = useGatherInputFields(setLoginData);
 
   return (
-    <div className=" grid-cols-2  h-[100svh]">
-      <div className="w-[10rem] mx-[2rem]">
+    <div className="  min-h-screen ">
+      <div className="w-[10rem]  mx-2">
         <img src={SailLogo} alt="SailLogo" />
       </div>
 
-      <div className="  justify-center m-auto my-[4rem] items-center bg-white w-[25rem]">
-        <div className="text-center  text-2xl font-bold">
+      <div className=" flex flex-col items-center justify-center w-full max-w-md mx-auto p-8 bg-white  ">
+        <div className="text-center  text-2xl font-bold mb-4">
           <h1>Sign In</h1>
         </div>
         <div className="block justify-center items-center flex-col  h-80 mt-10 ">
@@ -145,7 +145,7 @@ const Signin = () => {
                     />
                   </Form.Item>
                 </Col>
-                <div className="text-sm font-normal mb-2 pl-[1rem] text-[#75C2F6]">
+                <div className="text-sm font-normal mb-2  text-[#75C2F6]">
                   <h6>Forgot password?</h6>
                 </div>
                 <Col span={24}>
@@ -153,7 +153,7 @@ const Signin = () => {
                     loading={loading}
                     type="primary"
                     htmlType="submit"
-                    className="bg-[#134c98] flex items-center justify-center py-5"
+                    className="bg-[#134c98] w-full"
                     block
                   >
                     Sign In
