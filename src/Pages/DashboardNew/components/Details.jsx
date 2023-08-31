@@ -2,8 +2,22 @@ import { FiUsers } from "react-icons/fi";
 import DemoColumn from "./Chart/Chart";
 import RecentClockIn from "./ClockInHistory/RecentClockIn";
 import useGetParticipantInfo from "../../../hooks/useGetParticipants";
+import useGetUserInfo from "../../../hooks/useGetUserInfo";
+
 const Details = () => {
   const { participantsInfo } = useGetParticipantInfo();
+  const { userInfo: participantsClockinHistory } =
+    useGetUserInfo("clockinHistory");
+  // console.log(userInfo);
+  // console.log(participantsInfo[0])
+  const present = participantsInfo?.filter((present) => present.clockInStatus);
+
+  const absent = participantsInfo?.filter((absent) => !absent.clockInStatus);
+
+  const clockOuts = participantsInfo?.filter(
+    (clockOut) => clockOut.clockInStatus == false
+  );
+
   const items = [
     {
       icon: <FiUsers />,
@@ -14,19 +28,19 @@ const Details = () => {
     {
       icon: <FiUsers />,
       title: "Total Clocked-In Participant",
-      value: "",
+      value: present.length,
       textColor: "#A3AED0",
     },
     {
       icon: <FiUsers />,
       title: "Total Absent Participant",
-      value: "",
+      value: absent.length,
       textColor: "#A3AED0",
     },
     {
       icon: <FiUsers />,
       title: "Total Clocked-Out Participant",
-      value: "16",
+      value: clockOuts.length,
       color: "rgb(96 165 250)",
       textColor: "white",
     },
@@ -34,7 +48,7 @@ const Details = () => {
   return (
     <div className="">
       <div>
-        <div className="flex flex-wrap justify-evenly rounded-lg mb-10">
+        <div className="flex flex-wrap justify-center gap-[4rem] rounded-lg mb-10">
           {items.map((item, index) => (
             <div
               style={{ backgroundColor: item.color }}

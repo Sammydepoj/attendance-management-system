@@ -1,7 +1,5 @@
 import { BiSolidDashboard } from "react-icons/bi";
-import { CgNotes } from "react-icons/cg";
 import { FiUsers } from "react-icons/fi";
-import { GoCommentDiscussion } from "react-icons/go";
 import LogoutButton from "../components/LogoutButton";
 import { useNavigate, useLocation } from "react-router";
 const UserSidebar = () => {
@@ -13,22 +11,22 @@ const UserSidebar = () => {
       icon: <BiSolidDashboard />,
       link: "/user/dashboard/",
     },
-    {
-      name: "Clock-Ins",
-      icon: <CgNotes />,
-      link: "",
-    },
+    // {
+    //   name: "Clock-Ins",
+    //   icon: <CgNotes />,
+    //   link: "",
+    // },
     {
       name: "Profile",
       icon: <FiUsers />,
       link: "/user/dashboard/profile",
     },
 
-    {
-      name: "Participants",
-      icon: <GoCommentDiscussion />,
-      link: "",
-    },
+    // {
+    //   name: "Participants",
+    //   icon: <GoCommentDiscussion />,
+    //   link: "",
+    // },
   ];
 
   return (
@@ -41,7 +39,7 @@ const UserSidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-[10rem]">
+      <div className=" flex flex-col gap-[25rem]">
         <ul className="mt-[2.4rem] mx-auto grid gap-4">
           {navItems.map((item, index) => {
             return (

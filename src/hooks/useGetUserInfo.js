@@ -1,7 +1,7 @@
 import { useEffect, useCallback, useState } from "react";
 import { BASE_URL } from "../constants/baseUrl";
 
-const useGetUserInfo = () => {
+const useGetUserInfo = (endpoint) => {
   const [userInfo, setUserInfo] = useState({});
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
@@ -9,7 +9,7 @@ const useGetUserInfo = () => {
   const getUserInfo = useCallback(async () => {
     setLoading(true);
     try {
-      const request = await fetch(`${BASE_URL}getUserInfo`, {
+      const request = await fetch(`${BASE_URL}${endpoint}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const useGetUserInfo = () => {
       console.log(error);
       setLoading(false);
     }
-  }, [token]);
+  }, [endpoint, token]);
 
   useEffect(() => {
     getUserInfo();
