@@ -4,16 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const RecentClockIn = ({ participantsInfo }) => {
   const data = participantsInfo?.slice(0, 5).map((participant, index) => {
-    const clockInDate = new Date(participant.clockInDate);
-    const clockOutDate = new Date(participant.clockOutDate);
+    // const data = userInfo?.map((participant, index) => {
+    const clockInDate = new Date(participant?.clockInDate);
+    const clockOutDate = new Date(participant?.clockOutDate);
     return {
       key: index + 1,
       sn: index + 1,
-      firstName: participant.firstName,
-      lastName: participant.lastName,
+      firstName: participant?.firstName,
+      lastName: participant?.lastName,
+      clockInDate: clockInDate.toDateString().substring(0, 10),
       clockInTime: clockInDate.toTimeString().substring(0, 8),
       clockOutTime: clockOutDate.toTimeString().substring(0, 8),
-      clockInStatus: participant.clockInStatus,
+      clockInStatus: participant?.clockInStatus,
     };
   });
   const columns = [
@@ -33,6 +35,13 @@ const RecentClockIn = ({ participantsInfo }) => {
       dataIndex: "lastName",
       key: "lastName",
     },
+
+    {
+      title: "ClockInDate",
+      dataIndex: "clockInDate",
+      key: "clockInDate",
+    },
+
     {
       title: "Clock-In Time",
       dataIndex: "clockInTime",

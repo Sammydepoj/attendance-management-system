@@ -31,14 +31,14 @@ const ClockInButton = () => {
       const response = await clockIn.json();
       const time = new Date().getHours();
       if (!clockIn.ok) {
-        toast.error(response.responseMessage, {
+        toast.error(response?.responseMessage, {
           duration: 4000,
           position: "top-center",
         });
       }
       if (clockIn.ok && time <= 14) {
         localStorage.setItem("clockInStatus", response.data.clockInStatus);
-        toast.success(response.responseMessage, {
+        toast.success(response?.responseMessage, {
           duration: 4000,
           position: "top-center",
         });

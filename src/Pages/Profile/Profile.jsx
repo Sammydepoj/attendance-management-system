@@ -6,7 +6,7 @@ const Profile = () => {
 
   return (
     <Spin spinning={loading}>
-      <div className="  mx-9  m-3 flex gap-[4rem]">
+      <div className="  mx-9  m-3 flex gap-[4rem] justify-center">
         <div className="flex flex-col justify-center items-center gap-4">
           <img
             src={image}
