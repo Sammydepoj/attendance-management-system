@@ -9,7 +9,7 @@ const Details = () => {
   const { userInfo: participantsClockinHistory } =
     useGetUserInfo("clockinHistory");
   // console.log(userInfo);
-  console.log(participantsClockinHistory);
+  // console.log(participantsClockinHistory);
   const present = participantsInfo?.filter((present) => present.clockInStatus);
 
   const absent = participantsInfo?.filter((absent) => !absent.clockInStatus);
