@@ -9,7 +9,7 @@ const Details = () => {
   const { userInfo: participantsClockinHistory } =
     useGetUserInfo("clockinHistory");
   // console.log(userInfo);
-  // console.log(participantsInfo[0])
+  console.log(participantsClockinHistory);
   const present = participantsInfo?.filter((present) => present.clockInStatus);
 
   const absent = participantsInfo?.filter((absent) => !absent.clockInStatus);
@@ -48,12 +48,12 @@ const Details = () => {
   return (
     <div className="">
       <div>
-        <div className="flex flex-wrap justify-center gap-[4rem] rounded-lg mb-10">
+        <div className="flex flex-wrap  gap-[1rem] rounded-lg mb-10">
           {items.map((item, index) => (
             <div
               style={{ backgroundColor: item.color }}
               key={index}
-              className=" bg-white shadow px-[2rem] py-[1rem] m-2 rounded-lg"
+              className=" bg-white shadow px-[1rem] py-[1rem] m-2 rounded-lg"
             >
               <span className="flex items-center gap-2">
                 {item.icon}
@@ -72,8 +72,8 @@ const Details = () => {
         </div>
       </div>
       <div>
-        <div className=" w-full flex flex-wrap md:flex-nowrap gap-[2rem] md:gap-[4rem] pl-4">
-          <RecentClockIn participantsInfo={participantsInfo} />
+        <div className=" flex flex-wrap lg:flex-nowrap gap-[2rem] md:gap-[4rem] pl-4">
+          <RecentClockIn participantsInfo={participantsClockinHistory} />
           <DemoColumn />
         </div>
       </div>

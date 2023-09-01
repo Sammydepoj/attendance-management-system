@@ -4,10 +4,10 @@ import useGetParticipantInfo from "../../../../hooks/useGetParticipants";
 const ClockInHistory = () => {
   const { participantsInfo, loading } = useGetParticipantInfo();
 
- const clockIns = participantsInfo?.filter((clockIn)=>{
-    return clockIn.clockInStatus !== null
-  })
-  
+  const clockIns = participantsInfo?.filter((clockIn) => {
+    return clockIn.clockInStatus !== null;
+  });
+
   const columns = [
     {
       title: "S/N",
@@ -24,11 +24,11 @@ const ClockInHistory = () => {
       dataIndex: "lastName",
       key: "lastName",
     },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
+    // {
+    //   title: "Email",
+    //   dataIndex: "email",
+    //   key: "email",
+    // },
 
     {
       title: "ClockInDate",
@@ -82,7 +82,7 @@ const ClockInHistory = () => {
   });
   return (
     <Spin spinning={loading}>
-      <div className="">
+      <div className="overflow-scroll w-full">
         <Table columns={columns} dataSource={data} />
       </div>
     </Spin>

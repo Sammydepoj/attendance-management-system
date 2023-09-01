@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { BASE_URL } from "../constants/baseUrl";
 
 const useGetUserInfo = (endpoint) => {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState([]);
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
 
