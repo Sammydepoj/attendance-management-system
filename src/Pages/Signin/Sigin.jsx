@@ -145,9 +145,6 @@ const Signin = () => {
                     />
                   </Form.Item>
                 </Col>
-                <div className="text-sm font-normal mb-2 pl-[1rem] text-[#75C2F6]">
-                  <h6>Forgot password?</h6>
-                </div>
                 <Col span={24}>
                   <Button
                     loading={loading}

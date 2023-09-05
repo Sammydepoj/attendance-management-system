@@ -5,16 +5,27 @@ import { useNavigate } from "react-router-dom";
 const RecentClockIn = ({ participantsInfo }) => {
   const data = participantsInfo?.slice(0, 5).map((participant, index) => {
     // const data = participantsInfo?.map((participant, index) => {
-    const clockInDate = new Date(participant?.clockInDate);
-    const clockOutDate = new Date(participant?.clockOutDate);
+    const clockInDate =
+      participant.clockInDate !== null
+        ? new Date(participant.clockInDate).toDateString().substring(0, 10)
+        : "Invalid";
+
+    const clockInTime =
+      participant.clockInDate !== null
+        ? new Date(participant.clockInDate).toTimeString().substring(0, 8)
+        : "Invalid";
+    const clockOutDate =
+      participant.clockOutDate !== null
+        ? new Date(participant.clockOutDate).toTimeString().substring(0, 8)
+        : "Invalid";
     return {
       key: index + 1,
       sn: index + 1,
       firstName: participant?.firstName,
       lastName: participant?.lastName,
-      clockInDate: clockInDate.toDateString().substring(0, 10),
-      clockInTime: clockInDate.toTimeString().substring(0, 8),
-      clockOutTime: clockOutDate.toTimeString().substring(0, 8),
+      clockInDate: clockInDate,
+      clockInTime: clockInTime,
+      clockOutTime: clockOutDate,
       clockInStatus: participant?.clockInStatus,
     };
   });
@@ -73,8 +84,8 @@ const RecentClockIn = ({ participantsInfo }) => {
   ];
   const navigate = useNavigate();
   return (
-    <div className="md:w-[40%] overflow-x-scroll">
-      <div className=" flex justify-between mb-4">
+    <div className="md:w-[40%] grid">
+      <div className="flex justify-between">
         <h1 className=" text-lg font-semibold text-[--green]">
           RECENT CLOCK-IN
         </h1>
@@ -88,7 +99,9 @@ const RecentClockIn = ({ participantsInfo }) => {
           SEE ALL
         </Button>
       </div>
-      <Table columns={columns} dataSource={data} />
+      <div className=" flex justify-between mb-4 overflow-x-scroll">
+        <Table columns={columns} dataSource={data} />
+      </div>
     </div>
   );
 };
