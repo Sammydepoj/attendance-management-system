@@ -5,7 +5,7 @@ import useGetUserInfo from "../../../hooks/useGetUserInfo";
 import UserSidebar from "./UserSideBar";
 
 const UserDashboard = () => {
- const { userInfo } = useGetUserInfo("getUserInfo", "GET");
+  const { userInfo } = useGetUserInfo("getUserInfo");
   const time = new Date().getHours();
   return (
     <div className="max-w-full grid grid-cols-[5rem_1fr] min-h-[100svh] md:grid-cols-[15rem_1fr]">

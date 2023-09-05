@@ -4,10 +4,9 @@ import useGetParticipantInfo from "../../../../hooks/useGetParticipants";
 const ClockInHistory = () => {
   const { participantsInfo, loading } = useGetParticipantInfo();
 
- const clockIns = participantsInfo?.filter((clockIn)=>{
-    return clockIn.clockInStatus !== null
-  })
-  
+  const clockIns = participantsInfo?.filter((clockIn) => {
+    return clockIn.approvalStatus === "APPROVED";
+  });
   const columns = [
     {
       title: "S/N",
@@ -24,11 +23,11 @@ const ClockInHistory = () => {
       dataIndex: "lastName",
       key: "lastName",
     },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
+    // {
+    //   title: "Email",
+    //   dataIndex: "email",
+    //   key: "email",
+    // },
 
     {
       title: "ClockInDate",
@@ -66,23 +65,35 @@ const ClockInHistory = () => {
     },
   ];
   const data = clockIns?.map((participant, index) => {
-    const clockInDate = new Date(participant.clockInDate);
-    const clockOutDate = new Date(participant.clockOutDate);
+    const clockInDate =
+      participant.clockInDate !== null
+        ? new Date(participant.clockInDate).toDateString().substring(0, 10)
+        : "Invalid";
+
+    const clockInTime =
+      participant.clockInDate !== null
+        ? new Date(participant.clockOutDate).toTimeString().substring(0, 8)
+        : "Invalid";
+    const clockOutDate =
+      participant.clockOutDate !== null
+        ? new Date(participant.clockOutDate).toTimeString().substring(0, 8)
+        : "Invalid";
+    // const clockOutDate = new Date(participant.clockOutDate);
     return {
       key: index + 1,
       sn: index + 1,
       firstName: participant.firstName,
       lastName: participant.lastName,
       email: participant.email,
-      clockInDate: clockInDate.toDateString().substring(0, 10),
-      clockInTime: clockInDate.toTimeString().substring(0, 8),
-      clockOutTime: clockOutDate.toTimeString().substring(0, 8),
+      clockInDate: clockInDate,
+      clockInTime: clockInTime,
+      clockOutTime: clockOutDate,
       clockInStatus: participant.clockInStatus,
     };
   });
   return (
     <Spin spinning={loading}>
-      <div className="">
+      <div className="overflow-scroll w-full">
         <Table columns={columns} dataSource={data} />
       </div>
     </Spin>
