@@ -5,7 +5,7 @@ const Dashboard = () => {
   const { userInfo: userDetails } = useGetUserInfo("getUserInfo");
 
   return (
-    <div className=" grid grid-cols-[6.5rem_1fr] min-h-[100svh] md:grid-cols-[15rem_1fr] ">
+    <div className=" grid grid-cols-[6.5rem_1fr] min-h-[100svh] md:grid-cols-[15rem_1fr] overflow-x-hidden">
       <div className=" bg-[--white] h-[100vh]">
         <Sidebar />
       </div>
