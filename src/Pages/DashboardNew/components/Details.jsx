@@ -2,14 +2,14 @@ import { FiUsers } from "react-icons/fi";
 import DemoColumn from "./Chart/Chart";
 import RecentClockIn from "./ClockInHistory/RecentClockIn";
 import useGetParticipantInfo from "../../../hooks/useGetParticipants";
-import useGetUserInfo from "../../../hooks/useGetUserInfo";
+// import useGetUserInfo from "../../../hooks/useGetUserInfo";
 
 const Details = () => {
   const { participantsInfo } = useGetParticipantInfo();
-  const { userInfo: participantsClockinHistory } =
-    useGetUserInfo("clockinHistory");
+  // const { userInfo: participantsClockinHistory } =
+  //   useGetUserInfo("clockinHistory");
   // console.log(userInfo);
-  console.log(participantsClockinHistory);
+  // console.log(participantsClockinHistory);
   const present = participantsInfo?.filter((present) => present.clockInStatus);
 
   const absent = participantsInfo?.filter((absent) => !absent.clockInStatus);
@@ -73,7 +73,7 @@ const Details = () => {
       </div>
       <div>
         <div className=" flex flex-wrap lg:flex-nowrap gap-[2rem] md:gap-[4rem] pl-4">
-          <RecentClockIn participantsInfo={participantsClockinHistory} />
+          <RecentClockIn participantsInfo={present} />
           <DemoColumn />
         </div>
       </div>
