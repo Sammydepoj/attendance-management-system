@@ -15,7 +15,7 @@ const ClockInButton = () => {
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
   const clockInHandler = async () => {
-    // console.log(lat, long);
+    console.log(lat, long);
     setLoading(true);
     try {
       const clockIn = await fetch(`${BASE_URL}clockin`, {
@@ -44,7 +44,6 @@ const ClockInButton = () => {
         });
       }
       setLoading(false);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

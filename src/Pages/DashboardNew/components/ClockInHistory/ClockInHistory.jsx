@@ -72,12 +72,14 @@ const ClockInHistory = () => {
 
     const clockInTime =
       participant.clockInDate !== null
-        ? new Date(participant.clockOutDate).toTimeString().substring(0, 8)
+        ? new Date(participant.clockInDate).toTimeString().substring(0, 8)
         : "Invalid";
+
     const clockOutDate =
       participant.clockOutDate !== null
         ? new Date(participant.clockOutDate).toTimeString().substring(0, 8)
         : "Invalid";
+        
     // const clockOutDate = new Date(participant.clockOutDate);
     return {
       key: index + 1,
